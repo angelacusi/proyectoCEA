@@ -1,0 +1,99 @@
+.top-header{
+    background: var(--cfondo);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 5px 40px;
+}
+
+.header-left{
+    width: 150px;
+}
+.header-left span{
+    font-size: 0.8rem;
+    color: var(--cprimario);
+}
+.header-left p{
+    font-size: 0.7rem;
+    color: rgb(115, 112, 112);
+}
+
+.header-center{
+    text-align: center;
+}
+
+.header-center h1{
+    font-size: 2.3rem;
+    font-weight: bold;
+
+    margin: 0;
+
+    color: var(--cprimario);
+}
+
+.header-center p{
+    margin: 0;
+    font-family: var(--fuente);
+    font-size: 1rem;
+    color: gray;
+}
+
+.header-right img{
+    width:150px;
+}
+
+.navbar-container{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+    padding: 0%;
+}
+
+.custom-navbar{
+    background: var(--crojo);
+}
+
+.custom-navbar .navbar-nav{
+    gap:20px;
+    font-size:0.7rem;
+}
+
+.custom-navbar .nav-link{
+    margin: 0%;
+    color: white;
+
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+.custom-navbar .nav-link:hover{
+    color: var(--csecundario);
+}
+
+.custom-navbar .nav-link:focus,
+.custom-navbar .nav-link:active,
+.custom-navbar .router-link-exact-active{
+
+    color: var(--csecundario) !important;
+
+    border-bottom: 2px solid var(--csecundario);
+}
+
+.navbar-toggler{
+    border: none;
+}
+
+.navbar-toggler:focus{
+    box-shadow: none;
+}
+
+.navbar-toggler-icon{
+    filter: invert(1);
+}
+

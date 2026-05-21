@@ -1,0 +1,15 @@
+:root {
+    --cprimario: #003366;
+    --csecundario: #FFD700;
+    --crojo:#c40000;
+    --cards: #f5f5f5;
+    --cfondo: #ffffff;
+    --ctexto: #222;
+
+    --fuente: 'Segoe UI', sans-serif;
+
+    --shadow: 0 4px 10px rgba(0,0,0,0.5);
+
+    --radius: 12px;
+
+}
