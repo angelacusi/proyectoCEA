@@ -1,16 +1,17 @@
 <template>
 
 <div class="carreras">
-
-    <div class="titulo">
-
-        <h1>Nuestras Carreras</h1>
-
-        <p>
-            Conoce nuestras opciones de formación técnica
-        </p>
-
+    <div class="principio">
+        <div class="titulo">
+            <h1>Nuestras Carreras</h1>
+            <p>Conoce nuestras 8 opciones de formación técnica</p>
+        </div>
+        <div class="botones">
+            <a href="/programas.pdf" target="_blank" class="btn-c"> Ver Planes y Programas</a>
+            <a href="/docentes.pdf" target="_blank" class="btn-c"> Ver Plantel Docente</a>
+        </div>
     </div>
+    
 
     <div class="cards-container">
 
@@ -19,51 +20,38 @@
             v-for="carrera in carreras"
             :key="carrera.id"
         >
-
-            <!-- Imagen -->
             <div class="imagen">
-
                 <img
                     :src="carrera.imagen"
                     :alt="carrera.nombre"
                 >
-
             </div>
 
-            <!-- Centro -->
             <div class="info">
-
                 <h3>
                     {{ carrera.nombre }}
                 </h3>
-
                 <p>
                     {{ carrera.descripcion }}
                 </p>
-
             </div>
 
-            <!-- Derecha -->
             <div class="datos">
-
-                <p>
-                    📚 {{ carrera.alcance }}
-                </p>
-
-                <p>
-                    ⏳ {{ carrera.duracion }}
-                </p>
+                <span>
+                🎓 {{ carrera.alcance }}
+                </span>
+                <span>
+                ⏱ {{ carrera.duracion }}
+                </span>
 
                 <a
                     :href="carrera.malla"
                     target="_blank"
-                    class="btn-malla"
+                    class="ver-mas"
                 >
-                    Ver malla
+                    Ver malla curricular
                 </a>
-
             </div>
-
         </div>
     </div>
 
@@ -77,6 +65,13 @@ import "../styles/carreras.css"
 
 import sistemas from "../assets/sistemas.png"
 import secretariado from "../assets/secretariado.png"
+import ingles from "../assets/ingles.png"
+import electromecanica from "../assets/electromecanica.png"
+import mecanicaIndustrial from "../assets/mecanicaIndustrial.png"
+import mecanica from "../assets/mecanica.png"
+import electronica from "../assets/electronica.png"
+import electricidad from "../assets/electricidad.png"
+
 
 
 
@@ -84,37 +79,96 @@ const carreras=[
 
 {
     id:1,
-
     nombre:"Sistemas Informáticos",
-
     descripcion:
-    "Formación en desarrollo de software y tecnologías.",
-
+    "Especialista que apoya a nivel operativo el desarrollo de tecnologías de información para optimizar los recursos informáticos contribuye en el mejor desempeño de las empresas.",
     alcance:
-    "Técnico Básico, Técnico Auxiliar y Técnico Medio",
-
+    "Técnico Básico, Auxiliar y Medio",
     duracion:"2 años",
-
     imagen:sistemas,
-
-    malla:""
+    malla:"/mallaSistemas.png"
 },
 
 {
     id:2,
-
     nombre:"Secretariado Ejecutivo",
-
     descripcion:
-    "Formación en administración y gestión documental.",
+    "Base fundamental para una empresa al momento de desempeñar sus funciones correspondientes o asignadas por su superiores, pues da un apoyo importante a su gestión.",
+    alcance:
+    "Técnico Básico y Auxiliar",
+    duracion:"1 año y medio",
+    imagen:secretariado,
+    malla:"/mallaSecretariado.png"
+},
+{
+    id:3,
+    nombre:"Idioma Ingles",
+    descripcion:
+    "Comunication-conversation estrategies, Writing-Reading, Grammar, Vocabulary, Listening",
+    alcance:
+    "Técnico Básico y Auxiliar",
+    duracion:"1 año ",
+    imagen:ingles,
+    malla:"/mallaIngles.png"
+},
 
+{
+    id:4,
+    nombre:"Electromecánica",
+    descripcion:
+    "Sist. Eltr. Carrocería Sist. Eltr. del motor Sist. EFI OBD I- OBD II Electrónica Automotriz",
     alcance:
     "Técnico Básico y Técnico Auxiliar",
+    duracion:"1 año ",
+    imagen:electromecanica,
+    malla:""
+},
 
-    duracion:"1 año y medio",
+{
+    id:5,
+    nombre:"Mecánica Automotriz",
+    descripcion:
+    "Motores a Gasolina, sistema de Transmisión, Mecanismos de automóvil, Diagnótico, Reparación, Mantenimiento.",
+    alcance:
+    "Técnico Básico y Técnico Auxiliar",
+    duracion:"1 año ",
+    imagen:mecanica,
+    malla:""
+},
 
-    imagen:secretariado,
+{
+    id:6,
+    nombre:"Electrónica",
+    descripcion:
+    "Electrónica Básica, Ensambladoe de amplicadores, Sistemas de TV, Reparación, Mantenimiento.",
+    alcance:
+    "Técnico Básico y Técnico Auxiliar",
+    duracion:"1 año ",
+    imagen:electronica,
+    malla:""
+},
 
+{
+    id:7,
+    nombre:"Electricidad Industrial",
+    descripcion:
+    "Los procesos educativos prácticos productivos forman técnicos eficientes con capacidades productivas en la implementación de instalaciones eléctricas residenciales, reparación de máquinas, mantenimiento preventivo de máquinas.",
+    alcance:
+    "Técnico Básico, Técnico Auxiliar y Tecnico Medio",
+    duracion:"1 año y medio ",
+    imagen:electricidad,
+    malla:""
+},
+
+{
+    id:8,
+    nombre:"Mecánica Industrial",
+    descripcion:
+    "La propuesta de Formación se orienta a formar técnicos comprometidos con el desarrollo del país, con sólidos conocimientos, habilidades y destrezas en la producción, manufacturación y comercialización de productos metálicos.",
+    alcance:
+    "Técnico Básico, Técnico Auxiliar y Tecnico Medio",
+    duracion:"2 año ",
+    imagen:mecanicaIndustrial,
     malla:""
 }
 

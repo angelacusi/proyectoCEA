@@ -1,37 +1,78 @@
 # Vue 3 + Vite
 
-## Comandos para Subir tus Archivos
+# Proyecto CEA - Frontend
 
-### 1. Clonar el repositorio
+## Requisitos previos
 
-    git clone https://github.com/deymarFlores/SAMI-RFID
+Antes de ejecutar el proyecto debes instalar:
 
-### 2. Crear una nueva rama 
+- Node.js (incluye npm)
 
-    git checkout -b feature/1-Init-proyect
+## Instalación de Node.js
 
-### 3. Realiza los cambios en el codigo
+### Windows
 
-Para este punto toca avanzar en el código o realizar cambios que se desee 
+1. Ir a la página oficial de Node.js:
 
-### 4. Agregar los cambios al área de preparación (staging)
+:contentReference[oaicite:0]{index=0}
 
-    git add archive.txt
+2. Descargar la versión **LTS (Long Term Support)** recomendada.
 
-### 4.5 Agregar cambios globales
+3. Ejecutar el instalador descargado.
 
-    git add .
+4. Durante la instalación:
 
-### 5. Hacer commit con un mensaje descriptivo
+- Mantener las opciones por defecto
+- Asegurarse de dejar marcada la opción:
 
-    git commit -m "feature: Se realizaron cambios ..."
+```text
+Add to PATH
+```
 
+5. Finalizar la instalación.
 
-### 6. Subir la rama al repositorio remoto
+### Verificar instalación
 
-    git push origin feature/1-Init-proyect
+Abrir CMD o PowerShell y ejecutar:
 
+```bash
+node -v
+npm -v
+```
 
-### 7. Actualizar el repositorio
+Debería aparecer algo similar a:
 
-    git pull origin main
+```text
+v22.x.x
+10.x.x
+```
+
+## Clonar el proyecto
+
+```bash
+git clone https://github.com/angelacusi/proyectoCEA.git
+```
+
+## Entrar al frontend
+
+```bash
+cd proyectoCEA/frontend
+```
+
+## Instalar dependencias
+
+```bash
+npm install
+```
+
+## Ejecutar el proyecto
+
+```bash
+npm run dev
+```
+
+Abrir en el navegador:
+
+```text
+http://localhost:5173/
+```

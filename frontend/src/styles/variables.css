@@ -1,15 +1,58 @@
+/* 
+  VISTA A 
+ */
+
 :root {
-    --cprimario: #003366;
-    --csecundario: #FFD700;
-    --crojo:#c40000;
-    --cards: #f5f5f5;
-    --cfondo: #ffffff;
-    --ctexto: #222;
-
-    --fuente: 'Segoe UI', sans-serif;
-
-    --shadow: 0 4px 10px rgba(0,0,0,0.5);
-
-    --radius: 12px;
-
+  --cprimario: #1e293b;
+  --cprimario-light: #334155;
+  --csecundario: #eab308;
+  --crojo: #dc2626;
+  --cnegro: #0f172a;
+  --cards: #f4e8e8;
+  --cfondo: #f6f7ee;
+  --ctexto: #1e293b;
+  --cgris: #64748b;
+  --cborder: #cbcaca;
+  --gradient-principal: linear-gradient(135deg, #1e293b, #334155);
+  --gradient-secundario: linear-gradient(135deg, #dc2626, #b91c1c);
+  --navbar: rgba(15, 23, 42, 0.92);
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.14);
+  --radius: 18px;
 }
+
+/* VISTA B —  */
+
+/* :root {
+  --cprimario: #111827;
+
+  --cprimario-light: #1f2937;
+
+  --csecundario: #facc15;
+
+  --crojo: #ef4444;
+
+  --cnegro: #020617;
+
+  --cards: #1e293b;
+
+  --cfondo: #0f172a;
+
+  --ctexto: #f8fafc;
+
+  --cgris: #cbd5e1;
+
+  --cborder: #334155;
+
+  --gradient-principal: linear-gradient(135deg, #111827, #1e293b);
+
+  --gradient-secundario: linear-gradient(135deg, #dc2626, #991b1b);
+
+  --navbar: rgba(2, 6, 23, 0.92);
+
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+
+  --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.45);
+
+  --radius: 18px;
+} */

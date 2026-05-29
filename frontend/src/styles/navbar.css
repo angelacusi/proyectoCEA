@@ -1,99 +1,173 @@
-.top-header{
-    background: var(--cfondo);
+/* 
+NAVBAR
+ */
 
-    display: flex;
+.custom-navbar {
+  background: rgba(255, 255, 255, 0.95);
 
-    justify-content: space-between;
+  backdrop-filter: blur(12px);
 
-    align-items: center;
+  position: sticky;
 
-    padding: 5px 40px;
+  top: 0;
+
+  z-index: 1000;
+
+  box-shadow: var(--shadow);
+
+  padding: 14px 0;
 }
 
-.header-left{
-    width: 150px;
-}
-.header-left span{
-    font-size: 0.8rem;
-    color: var(--cprimario);
-}
-.header-left p{
-    font-size: 0.7rem;
-    color: rgb(115, 112, 112);
-}
+/* CONTAINER LOGO */
 
-.header-center{
-    text-align: center;
+.logo-container {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  text-decoration: none;
 }
 
-.header-center h1{
-    font-size: 2.3rem;
-    font-weight: bold;
+/* LOGO */
 
-    margin: 0;
+.logo-container img {
+  width: 75px;
 
-    color: var(--cprimario);
+  border-radius: 12px;
 }
 
-.header-center p{
-    margin: 0;
-    font-family: var(--fuente);
+/* TEXTO LOGO */
+
+.logo-texto h1 {
+  font-size: 1.2rem;
+
+  font-weight: 700;
+
+  margin: 0;
+
+  color: var(--cprimario);
+}
+
+.logo-texto p {
+  margin: 0;
+
+  font-size: 0.82rem;
+
+  color: var(--cgris);
+}
+
+/* LINKS */
+
+.navbar-nav {
+  gap: 18px;
+
+  align-items: center;
+}
+
+/* LINK */
+
+.nav-link {
+  position: relative;
+
+  font-weight: 500;
+
+  color: var(--ctexto);
+
+  transition: 0.3s;
+
+  padding: 8px 0;
+}
+
+/* HOVER */
+
+.nav-link:hover {
+  color: var(--crojo);
+}
+
+/* LINEA */
+
+.nav-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: -5px;
+
+  transform: translateX(-50%);
+
+  width: 0;
+
+  height: 2px;
+
+  background: var(--crojo);
+
+  transition: 0.3s;
+
+  border-radius: 10px;
+}
+
+/* HOVER LINEA */
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ACTIVO */
+
+.router-link-exact-active {
+  color: var(--crojo) !important;
+
+  font-weight: 600;
+}
+
+.router-link-exact-active::after {
+  width: 100%;
+}
+
+/* BOTON RESPONSIVE */
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* ===================================================
+   RESPONSIVE
+=================================================== */
+
+@media (max-width: 992px) {
+  .top-bar {
+    display: none;
+  }
+
+  .logo-container {
+    gap: 10px;
+  }
+
+  .logo-container img {
+    width: 60px;
+  }
+
+  .logo-texto h1 {
     font-size: 1rem;
-    color: gray;
+  }
+
+  .logo-texto p {
+    font-size: 0.72rem;
+  }
+
+  .navbar-nav {
+    margin-top: 20px;
+
+    gap: 12px;
+
+    text-align: center;
+  }
 }
-
-.header-right img{
-    width:150px;
-}
-
-.navbar-container{
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: var(--shadow);
-    padding: 0%;
-}
-
-.custom-navbar{
-    background: var(--crojo);
-}
-
-.custom-navbar .navbar-nav{
-    gap:20px;
-    font-size:0.7rem;
-}
-
-.custom-navbar .nav-link{
-    margin: 0%;
-    color: white;
-
-    font-weight: 500;
-
-    transition: 0.3s;
-}
-
-.custom-navbar .nav-link:hover{
-    color: var(--csecundario);
-}
-
-.custom-navbar .nav-link:focus,
-.custom-navbar .nav-link:active,
-.custom-navbar .router-link-exact-active{
-
-    color: var(--csecundario) !important;
-
-    border-bottom: 2px solid var(--csecundario);
-}
-
-.navbar-toggler{
-    border: none;
-}
-
-.navbar-toggler:focus{
-    box-shadow: none;
-}
-
-.navbar-toggler-icon{
-    filter: invert(1);
-}
-

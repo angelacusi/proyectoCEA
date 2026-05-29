@@ -1,33 +1,87 @@
+#carouselCEA {
+  width: 100%;
 
+  overflow: hidden;
 
-.carousel-img{
-    height: 70vh;
-    object-fit:contain;
-
-    filter: brightness(60%);
+  background: var(--cnegro);
 }
 
-.carousel-caption{
-    bottom: 30%;
+/* imagen */
+
+.carousel-img {
+  height: 72vh;
+
+  width: 100%;
+
+  object-fit: cover;
+
+  filter: brightness(55%);
+}
+
+/* caption */
+
+.carousel-caption {
+  bottom: 22%;
+
+  text-align: left;
+
+  max-width: 700px;
+
+  left: 8%;
+
+  right: auto;
+}
+
+/* titulo */
+
+.carousel-caption h1 {
+  font-size: 3.2rem;
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  margin-bottom: 20px;
+
+  color: white;
+}
+
+/* texto */
+
+.carousel-caption p {
+  font-size: 1.05rem;
+
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  max-width: 600px;
+}
+
+/* responsive */
+
+@media (max-width: 768px) {
+  .carousel-img {
+    height: 60vh;
+  }
+
+  .carousel-caption {
+    bottom: 15%;
+
+    left: 6%;
+
+    right: 6%;
 
     text-align: center;
-}
 
-.carousel-caption h1{
-    font-size: 4rem;
-    font-weight: bold;
-}
+    max-width: 100%;
+  }
 
-.carousel-caption p{
-    font-size: 1.5rem;
-}
+  .carousel-caption h1 {
+    font-size: 2rem;
+  }
 
-#carouselCEA{
-width: 100%;
-border-radius: 0;
-
-    overflow: hidden;
-
-    box-shadow: var(--shadow);
-    background-color: rgb(15, 19, 46);
+  .carousel-caption p {
+    font-size: 0.95rem;
+  }
 }

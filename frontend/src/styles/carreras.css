@@ -1,104 +1,333 @@
-.carreras{
+/* ==========================
+   CONTENEDOR
+========================== */
 
-    width:90%;
+.carreras {
+  width: 90%;
 
-    margin:auto;
+  margin: auto;
 
-    padding:50px 0;
+  padding: 70px 0;
 }
 
-.titulo{
+/* ==========================
+   PARTE SUPERIOR
+========================== */
 
-    text-align:center;
+.principio {
+  display: flex;
 
-    margin-bottom:50px;
+  justify-content: space-between;
+
+  align-items: end;
+
+  gap: 30px;
+
+  margin-bottom: 60px;
+
+  flex-wrap: wrap;
 }
 
-.titulo h1{
+/* TITULO */
 
-    color:var(--cprimario);
+.titulo h1 {
+  font-size: 2.8rem;
 
-    margin-bottom:10px;
+  font-weight: 700;
+
+  color: var(--cprimario);
+
+  margin-bottom: 12px;
 }
 
-.cards-container{
-    display:flex;
+.titulo p {
+  font-size: 1rem;
+
+  color: var(--cgris);
+}
+
+/* ==========================
+   BOTONES
+========================== */
+
+.botones {
+  display: flex;
+
+  gap: 15px;
+
+  flex-wrap: wrap;
+}
+
+.btn-c {
+  padding: 13px 24px;
+
+  border-radius: 50px;
+
+  background: var(--gradient-secundario);
+
+  color: white;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: 0.3s;
+
+  box-shadow: var(--shadow);
+
+  font-size: 0.95rem;
+}
+
+.btn-c:hover {
+  transform: translateY(-4px);
+
+  box-shadow: var(--shadow-hover);
+
+  color: white;
+}
+
+/* ==========================
+   GRID
+========================== */
+
+.cards-container {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 30px;
+}
+
+/* ==========================
+   CARD
+========================== */
+
+.card-carrera {
+  position: relative;
+
+  height: 420px;
+
+  border-radius: 28px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  box-shadow: var(--shadow);
+
+  transition: 0.4s;
+
+  background: black;
+}
+
+/* imagen */
+
+.imagen {
+  width: 100%;
+
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.imagen img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: 0.7s;
+}
+
+/* overlay */
+
+.card-carrera::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.15));
+
+  z-index: 1;
+
+  transition: 0.4s;
+}
+
+/* hover */
+
+.card-carrera:hover {
+  transform: translateY(-10px);
+
+  box-shadow: var(--shadow-hover);
+}
+
+.card-carrera:hover img {
+  transform: scale(1.08);
+}
+
+/* ==========================
+   INFO
+========================== */
+
+.info {
+  position: absolute;
+
+  left: 28px;
+
+  right: 28px;
+
+  bottom: 28px;
+
+  z-index: 2;
+
+  color: white;
+
+  transition: 0.4s;
+}
+
+/* titulo */
+
+.info h3 {
+  font-size: 1.7rem;
+
+  font-weight: 700;
+
+  margin-bottom: 15px;
+}
+
+/* descripcion */
+
+.info p {
+  font-size: 0.95rem;
+
+  line-height: 1.7;
+
+  opacity: 0;
+
+  max-height: 0;
+
+  overflow: hidden;
+
+  transition: 0.4s;
+
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* hover texto */
+
+.card-carrera:hover .info p {
+  opacity: 1;
+
+  max-height: 300px;
+
+  margin-bottom: 18px;
+}
+
+/* ==========================
+   DATOS
+========================== */
+
+.datos {
+  position: absolute;
+
+  top: 20px;
+
+  left: 20px;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+/* badges */
+
+.datos span {
+  background: rgba(255, 255, 255, 0.15);
+
+  backdrop-filter: blur(8px);
+
+  padding: 8px 14px;
+
+  border-radius: 50px;
+
+  font-size: 0.85rem;
+
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================
+   BOTON VER MÁS
+========================== */
+
+.ver-mas {
+  display: inline-block;
+
+  padding: 11px 22px;
+
+  border-radius: 50px;
+
+  background: var(--csecundario);
+
+  color: black;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: 0.3s;
+
+  opacity: 0;
+
+  transform: translateY(15px);
+}
+
+.card-carrera:hover .ver-mas {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.ver-mas:hover {
+  background: white;
+
+  color: black;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 768px) {
+  .principio {
     flex-direction: column;
-    gap:30px;
+
+    align-items: center;
+
+    text-align: center;
+  }
+
+  .titulo h1 {
+    font-size: 2.2rem;
+  }
+
+  .botones {
+    justify-content: center;
+  }
+
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .card-carrera {
+    height: 400px;
+  }
 }
-
-.card-carrera{
-    display:flex;
-    align-items:center;
-    gap:30px;
-    background:var(--cards);
-    border-radius:20px;
-    padding:15px;
-    margin-bottom:20px;
-    box-shadow:var(--shadow);
-    transition:0.3s;
-}
-
-.card-carrera:hover{
-    transform:translateY(-8px)}
-
-.imagen{
-    flex:1;
-}
-
-.imagen img{
-    width:100%;
-    max-width:300px;
-    object-fit:cover;
-    border-radius:15px;
-}
-
-/* Centro */
-
-.info{
-
-    flex:2;
-}
-
-.info h3{
-
-    color:var(--cprimario);
-
-    margin-bottom:15px;
-}
-
-.info p{
-
-    color:#555;
-
-    line-height:1.8;
-}
-
-/* Derecha */
-
-.datos{
-
-    flex:1;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:15px;
-
-    align-items:flex-start;
-}
-
-.btn-malla{
-    background:var(--cprimario);
-    color:var(--cfondo);
-    padding:10px 20px;
-    border-radius:10px;
-    transition:.3s;
-}
-
-.btn-malla:hover{
-
-    background:var(--crojo);
-}
-

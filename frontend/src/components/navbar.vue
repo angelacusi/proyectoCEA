@@ -1,96 +1,50 @@
 <template>
+  <!-- NAVBAR -->
 
-<!-- HEADER -->
-<div class="top-header">
+  <nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container">
+      <!-- LOGO -->
 
-    <div class="header-left">
-        <p>Centro de educación técnica tecnológica productiva</p>
-        <p>Carreras a nivel técnico básico, auxiliar y medio</p>
-    </div>
+      <router-link to="/" class="navbar-brand logo-container">
+        <img src="/png logo.png" alt="Logo CEA" />
 
-    <div class="header-center">
-        <h1>CEA BOLIVIANO-ALEMÁN</h1>
-        <p>Centro de Educación Alternativa</p>
-    </div>
+        <div class="logo-texto">
+          <h1>CEA Boliviano Alemán</h1>
 
-    <div class="header-right">
-        <img
-            src="../assets/logo.jpg"
-            alt="Logo CEA"
-        >
-    </div>
-
-</div>
-
-<!-- NAVBAR -->
-<div class="navbar-container">
-
-<nav class="navbar navbar-expand-sm custom-navbar">
-
-    <div class="container-fluid">
-
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div
-            class="collapse navbar-collapse"
-            id="navbarNav"
-        >
-
-            <div class="navbar-nav mx-auto">
-
-                <router-link
-                    class="nav-link"
-                    to="/"
-                >
-                    INICIO
-                </router-link>
-
-                <router-link
-                    class="nav-link"
-                    to="/carreras"
-                >
-                    CARRERAS
-                </router-link>
-
-                <router-link
-                    class="nav-link"
-                    to="/publicaciones"
-                >
-                    PUBLICACIONES
-                </router-link>
-
-                <router-link
-                    class="nav-link"
-                    to="/nosotros"
-                >
-                    NOSOTROS
-                </router-link>
-
-                <router-link
-                    class="nav-link"
-                    to="/contacto"
-                >
-                    CONTACTO
-                </router-link>
-
-            </div>
-
+          <p>Formación en Tecnico Basico, Tecnico Medio y Tecnico Auxiliar</p>
         </div>
+      </router-link>
 
+      <!-- BOTON -->
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- LINKS -->
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav ms-auto">
+          <router-link class="nav-link" to="/"> Inicio </router-link>
+
+          <router-link class="nav-link" to="/carreras"> Carreras </router-link>
+
+          <router-link class="nav-link" to="/publicaciones">
+            Publicaciones
+          </router-link>
+
+          <router-link class="nav-link" to="/nosotros"> Nosotros </router-link>
+        </div>
+      </div>
     </div>
-
-</nav>
-
-</div>
-
-
+  </nav>
 </template>
 
-<script setup> import "../styles/navbar.css"; </script>
+<script setup>
+import "../styles/navbar.css";
+</script>
