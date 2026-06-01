@@ -301,7 +301,7 @@
 <script setup>
 import { ref, reactive } from "vue";
 import html2pdf from "html2pdf.js/dist/html2pdf.min.js";
-import Stepper from "../components/Stepper.vue";
+import stepper from "../components/stepper.vue";
 
 const pasoActual = ref(1);
 
