@@ -1,37 +1,37 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import Inicio from "../paginas/Inicio.vue";
-import Carreras from "../paginas/Carreras.vue";
-import Publicaciones from "../paginas/Publicaciones.vue";
-import Nosotros from "../paginas/Nosotros.vue";
-import Inscripcion from "../paginas/Inscripcion.vue";
+import inicio from "../paginas/inicio.vue";
+import carreras from "../paginas/carreras.vue";
+import publicaciones from "../paginas/publicaciones.vue";
+import nosotros from "../paginas/nosotros.vue";
+import inscripcion from "../paginas/inscripcion.vue";
 // import Contacto from "../paginas/Contacto.vue";
 
 const routes = [
   {
     path: "/",
-    component: Inicio,
+    component: inicio,
   },
 
   {
     path: "/carreras",
-    component: Carreras,
+    component: carreras,
   },
   // ,
 
   {
     path: "/publicaciones",
-    component: Publicaciones,
+    component: publicaciones,
   },
 
   {
     path: "/nosotros",
-    component: Nosotros,
+    component: nosotros,
   },
 
   {
     path: "/inscripcion",
-    component: Inscripcion,
+    component: inscripcion,
   },
 ];
 
