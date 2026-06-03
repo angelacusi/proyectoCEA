@@ -298,4 +298,10 @@ iframe {
   .contacto-card {
     padding: 30px 20px;
   }
+
+  .contenedor-info,
+  .lista-requisitos,
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
 }
