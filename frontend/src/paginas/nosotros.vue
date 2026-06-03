@@ -115,24 +115,22 @@
 
     <p>Llena el RUDE y forma parte del C.E.A. Boliviano Alemán</p>
 
-    <router-link to="/inscripcion" class="btn-inscripcion">
-      Llenar RUDE
-    </router-link>
+    <button
+      type="button"
+      data-bs-toggle="modal"
+      data-bs-target="#modalRude"
+      class="btn-inscripcion"
+    >
+      llenar RUDE
+    </button>
+    <modalRude />
   </section>
 
   <section class="contacto">
     <h2>C.E.A. Boliviano Alemán</h2>
 
     <div class="contacto-card">
-      <p>Encuentranos y Contactanos</p>
-      <div class="info-contacto">
-        <p>
-          <i class="bi bi-geo-alt-fill"></i>
-
-          La Paz, calle Catacora entre Pichincha y Montenegro, a media cuadra de
-          la plaza Riosinho, instalaciones U.E Genaro Gamarra.
-        </p>
-      </div>
+      <h4>Contactanos</h4>
 
       <div class="redes">
         <a href="https://wa.me/59178780074">
@@ -151,24 +149,30 @@
           <i class="bi bi-tiktok"></i>
         </a>
       </div>
+
+      <div class="info-contacto">
+        <h4>Encuentranos</h4>
+
+        <p>
+          <i class="bi bi-geo-alt-fill"></i>
+
+          La Paz, calle Catacora entre Pichincha y Montenegro, a media cuadra de
+          la plaza Riosinho, instalaciones U.E Genaro Gamarra.
+        </p>
+
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3661.298865795666!2d-68.13740792498601!3d-16.49154544050753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915f21f4c6747d1b%3A0x814510a2d549aacb!2sC.E.A.%20Boliviano%20Alem%C3%A1n!5e1!3m2!1ses-419!2sbo!4v1779834570068!5m2!1ses-419!2sbo"
+          width="100%"
+          height="400"
+          loading="lazy"
+        >
+        </iframe>
+      </div>
     </div>
-  </section>
-
-  <!-- MAPA -->
-
-  <section class="mapa">
-    <h2>Encuéntranos</h2>
-
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3661.298865795666!2d-68.13740792498601!3d-16.49154544050753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915f21f4c6747d1b%3A0x814510a2d549aacb!2sC.E.A.%20Boliviano%20Alem%C3%A1n!5e1!3m2!1ses-419!2sbo!4v1779834570068!5m2!1ses-419!2sbo"
-      width="100%"
-      height="400"
-      loading="lazy"
-    >
-    </iframe>
   </section>
 </template>
 
 <script setup>
 import "../styles/nosotros.css";
+import modalRude from "../components/modalRude.vue";
 </script>

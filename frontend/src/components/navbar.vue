@@ -1,10 +1,9 @@
 <template>
-  <!-- NAVBAR -->
+  <!-- NAVBAR OFFCANVAS -->
 
   <nav class="navbar navbar-expand-lg custom-navbar">
-    <div class="container">
+    <div class="container-fluid">
       <!-- LOGO -->
-
       <router-link to="/" class="navbar-brand logo-container">
         <img src="/png logo.png" alt="Logo CEA" />
 
@@ -15,30 +14,62 @@
         </div>
       </router-link>
 
-      <!-- BOTON -->
-
+      <!-- BOTON OFFCANVAS -->
       <button
         class="navbar-toggler"
         type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar"
+        aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- LINKS -->
+      <!-- OFFCANVAS -->
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel"
+      >
+        <!-- HEADER -->
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="navbar-nav ms-auto">
-          <router-link class="nav-link" to="/"> Inicio </router-link>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
 
-          <router-link class="nav-link" to="/carreras"> Carreras </router-link>
+        <!-- BODY -->
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <router-link class="nav-link" to="/">Inicio</router-link>
+            </li>
 
-          <router-link class="nav-link" to="/publicaciones">
-            Publicaciones
-          </router-link>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/carreras"
+                >Carreras</router-link
+              >
+            </li>
 
-          <router-link class="nav-link" to="/nosotros"> Nosotros </router-link>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/publicaciones">
+                Publicaciones
+              </router-link>
+            </li>
+
+            <li class="nav-item">
+              <router-link class="nav-link" to="/nosotros">
+                Nosotros
+              </router-link>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

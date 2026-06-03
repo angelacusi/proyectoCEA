@@ -37,65 +37,91 @@ defineProps({
 
 <style scoped>
 .stepper {
+  margin-bottom: 0.6rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
+  width: 100%;
 }
 
 .step-wrapper {
   display: flex;
   align-items: center;
-  flex: 1;
 }
 
 .step {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  z-index: 2;
+  min-width: clamp(30px, 5vw, 50px);
 }
 
 .circle {
-  width: 45px;
-  height: 45px;
+  margin-top: 0.5rem;
+  width: clamp(25px, 3vw, 40px);
+  height: clamp(25px, 3vw, 40px);
   border-radius: 50%;
-  background: #ddd;
+  background: var(--card);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: clamp(0.75rem, 1.5vw, 2rem);
   font-weight: bold;
   transition: 0.3s;
 }
 
 .circle.active {
-  background: #0d6efd;
-  color: white;
+  background: var(--principal-light);
+  color: var(--texto-light);
 }
 
 .circle.done {
-  background: #198754;
-  color: white;
+  background: #06b83b;
+  color: var(--texto-light);
 }
 
 .label {
-  margin-top: 10px;
-  font-size: 14px;
+  margin-top: 0.1rem;
+  margin-bottom: 0;
+  font-size: clamp(0.3rem, 0.8vw, 0.75rem);
   text-align: center;
+  max-width: 80px;
 }
 
 .line {
-  flex: 1;
+  width: clamp(20px, 2.5vw, 40px);
   height: 4px;
-  background: #ddd;
-  margin: 0 10px;
-  margin-bottom: 25px;
+  background: var(--card);
+  margin: 0 clamp(1px, 0.8vw, 6px);
   transition: 0.3s;
 }
 
 .lineDone {
-  background: #198754;
+  background: #0db13e;
+}
+@media (max-width: 768px) {
+  .label {
+    display: none;
+  }
+  .line {
+    width: 30px;
+    margin: 0;
+  }
+
+  .circle {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .label {
+    display: none;
+  }
+  .stepper {
+    gap: 0.5rem;
+  }
+  .line {
+    display: none;
+  }
 }
 </style>

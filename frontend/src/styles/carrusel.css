@@ -1,48 +1,36 @@
 #carouselCEA {
   width: 100%;
-
   overflow: hidden;
-
   background: var(--cnegro);
 }
 
 /* imagen */
 
 .carousel-img {
-  height: 72vh;
-
+  height: 83vh;
   width: 100%;
-
   object-fit: cover;
-
   filter: brightness(55%);
 }
 
-/* caption */
+/* mensaje en la imagen */
 
 .carousel-caption {
   bottom: 22%;
-
-  text-align: left;
-
+  text-align: center;
   max-width: 700px;
-
-  left: 8%;
-
-  right: auto;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
 }
 
 /* titulo */
 
 .carousel-caption h1 {
   font-size: 3.2rem;
-
   font-weight: 700;
-
   line-height: 1.2;
-
   margin-bottom: 20px;
-
   color: white;
 }
 
@@ -50,12 +38,8 @@
 
 .carousel-caption p {
   font-size: 1.05rem;
-
   line-height: 1.8;
-
   color: rgba(255, 255, 255, 0.9);
-
-  max-width: 600px;
 }
 
 /* responsive */
@@ -67,13 +51,9 @@
 
   .carousel-caption {
     bottom: 15%;
-
     left: 6%;
-
     right: 6%;
-
     text-align: center;
-
     max-width: 100%;
   }
 

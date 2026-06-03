@@ -1,30 +1,23 @@
-/* ==========================
-   CONTENEDOR
-========================== */
+/* 
+  CONTENEDOR
+ */
 
 .carreras {
   width: 90%;
-
   margin: auto;
-
   padding: 70px 0;
 }
 
-/* ==========================
-   PARTE SUPERIOR
-========================== */
+/* 
+  PARTE SUPERIOR
+ */
 
 .principio {
   display: flex;
-
   justify-content: space-between;
-
   align-items: end;
-
   gap: 30px;
-
   margin-bottom: 60px;
-
   flex-wrap: wrap;
 }
 
@@ -32,111 +25,80 @@
 
 .titulo h1 {
   font-size: 2.8rem;
-
   font-weight: 700;
-
-  color: var(--cprimario);
-
+  color: var(--principal);
   margin-bottom: 12px;
 }
 
 .titulo p {
   font-size: 1rem;
-
-  color: var(--cgris);
+  color: var(--texto-secundario);
 }
 
-/* ==========================
-   BOTONES
-========================== */
+/* 
+  BOTONES
+ */
 
 .botones {
   display: flex;
-
   gap: 15px;
-
   flex-wrap: wrap;
 }
 
 .btn-c {
   padding: 13px 24px;
-
   border-radius: 50px;
-
-  background: var(--gradient-secundario);
-
-  color: white;
-
+  background: var(--gradiente-accion);
+  color: var(--texto-light);
   font-weight: 600;
-
   text-decoration: none;
-
   transition: 0.3s;
-
-  box-shadow: var(--shadow);
-
+  box-shadow: var(--sombra);
   font-size: 0.95rem;
 }
 
 .btn-c:hover {
   transform: translateY(-4px);
-
-  box-shadow: var(--shadow-hover);
-
-  color: white;
+  box-shadow: var(--sombra-hover);
+  color: var(--texto-light);
 }
 
-/* ==========================
-   GRID
-========================== */
+/* 
+  GRID
+ */
 
 .cards-container {
   display: grid;
-
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-
   gap: 30px;
 }
 
-/* ==========================
+/* 
    CARD
-========================== */
+ */
 
 .card-carrera {
   position: relative;
-
   height: 420px;
-
   border-radius: 28px;
-
   overflow: hidden;
-
   cursor: pointer;
-
-  box-shadow: var(--shadow);
-
+  box-shadow: var(--sombra);
   transition: 0.4s;
-
-  background: black;
 }
 
 /* imagen */
 
 .imagen {
   width: 100%;
-
   height: 100%;
-
   overflow: hidden;
 }
 
 .imagen img {
   width: 100%;
-
   height: 100%;
-
   object-fit: cover;
-
   transition: 0.7s;
 }
 
@@ -144,47 +106,38 @@
 
 .card-carrera::before {
   content: "";
-
   position: absolute;
-
   inset: 0;
-
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.15));
-
+  background: black;
+  opacity: 0.2;
   z-index: 1;
-
   transition: 0.4s;
 }
 
 /* hover */
-
+.card-carrera:hover::before {
+  opacity: 0.55;
+}
 .card-carrera:hover {
   transform: translateY(-10px);
-
-  box-shadow: var(--shadow-hover);
+  box-shadow: var(--sombra-hover);
 }
 
 .card-carrera:hover img {
   transform: scale(1.08);
 }
 
-/* ==========================
+/* 
    INFO
-========================== */
+ */
 
 .info {
   position: absolute;
-
   left: 28px;
-
   right: 28px;
-
   bottom: 28px;
-
   z-index: 2;
-
-  color: white;
-
+  color: var(--texto-light);
   transition: 0.4s;
 }
 
@@ -192,9 +145,7 @@
 
 .info h3 {
   font-size: 1.7rem;
-
   font-weight: 700;
-
   margin-bottom: 15px;
 }
 
@@ -202,17 +153,11 @@
 
 .info p {
   font-size: 0.95rem;
-
   line-height: 1.7;
-
   opacity: 0;
-
   max-height: 0;
-
   overflow: hidden;
-
   transition: 0.4s;
-
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -220,29 +165,21 @@
 
 .card-carrera:hover .info p {
   opacity: 1;
-
   max-height: 300px;
-
   margin-bottom: 18px;
 }
 
-/* ==========================
-   DATOS
-========================== */
+/* 
+  DATOS
+ */
 
 .datos {
   position: absolute;
-
   top: 20px;
-
   left: 20px;
-
   z-index: 2;
-
   display: flex;
-
   flex-direction: column;
-
   gap: 10px;
 }
 
@@ -250,68 +187,49 @@
 
 .datos span {
   background: rgba(255, 255, 255, 0.15);
-
   backdrop-filter: blur(8px);
-
   padding: 8px 14px;
-
   border-radius: 50px;
-
   font-size: 0.85rem;
-
-  color: white;
-
+  color: var(--texto-light);
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* ==========================
-   BOTON VER MÁS
-========================== */
+/* 
+  BOTON VER MÁS
+ */
 
 .ver-mas {
   display: inline-block;
-
   padding: 11px 22px;
-
   border-radius: 50px;
-
-  background: var(--csecundario);
-
-  color: black;
-
+  background: var(--secundario);
+  color: var(--texto);
   font-weight: 600;
-
   text-decoration: none;
-
-  transition: 0.3s;
-
+  transition: 0.5s;
   opacity: 0;
-
   transform: translateY(15px);
 }
 
 .card-carrera:hover .ver-mas {
   opacity: 1;
-
   transform: translateY(0);
 }
 
 .ver-mas:hover {
-  background: white;
-
-  color: black;
+  background: var(--texto-light);
+  color: var(--texto);
 }
 
-/* ==========================
-   RESPONSIVE
-========================== */
+/* 
+  RESPONSIVE
+ */
 
 @media (max-width: 768px) {
   .principio {
     flex-direction: column;
-
     align-items: center;
-
     text-align: center;
   }
 

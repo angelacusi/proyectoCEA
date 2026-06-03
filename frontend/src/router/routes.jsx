@@ -4,7 +4,7 @@ import inicio from "../paginas/inicio.vue";
 import carreras from "../paginas/carreras.vue";
 import publicaciones from "../paginas/publicaciones.vue";
 import nosotros from "../paginas/nosotros.vue";
-import inscripcion from "../paginas/inscripcion.vue";
+
 // import Contacto from "../paginas/Contacto.vue";
 
 const routes = [
@@ -27,11 +27,6 @@ const routes = [
   {
     path: "/nosotros",
     component: nosotros,
-  },
-
-  {
-    path: "/inscripcion",
-    component: inscripcion,
   },
 ];
 

@@ -12,11 +12,8 @@ html {
 }
 
 body {
-  background: var(--cfondo);
-
-  color: var(--ctexto);
-
-  font-family: var(--fuente);
+  background: var(--fondo);
+  color: var(--principal);
 }
 
 section {
@@ -27,12 +24,11 @@ h1,
 h2,
 h3,
 h4 {
-  color: var(--ctexto);
+  color: var(--principal);
 }
 
 a {
   text-decoration: none;
-
   color: inherit;
 }
 

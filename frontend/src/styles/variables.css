@@ -3,24 +3,32 @@
  */
 
 :root {
-  --cprimario: #1e293b;
-  --cprimario-light: #334155;
-  --csecundario: #eab308;
-  --crojo: #dc2626;
-  --cnegro: #0f172a;
-  --cards: #f4e8e8;
-  --cfondo: #f6f7ee;
-  --ctexto: #1e293b;
-  --cgris: #64748b;
-  --cborder: #cbcaca;
-  --gradient-principal: linear-gradient(135deg, #1e293b, #334155);
-  --gradient-secundario: linear-gradient(135deg, #dc2626, #b91c1c);
-  --navbar: rgba(15, 23, 42, 0.92);
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.14);
+  --principal: #1e293b;
+  --principal-light: #334155;
+  --secundario: #eab308;
+  --accion: #dc2626;
+
+  --fondo: #f6f7ee;
+  --fondo-alt: #f3ebd4;
+  --card: #f3e8e8;
+
+  --texto: #1e293b;
+  --texto-light: #f8fafc;
+  --texto-secundario: #64748b;
+
+  --navbar-bg: rgba(255, 255, 255, 0.95);
+  --footer-bg: rgba(15, 23, 42, 0.92);
+
+  --borde: #cbb4b4;
+
+  --sombra: 10px 10px 40px 15px rgba(0, 0, 0, 0.162);
+  --sombra-hover: 8px 8px 30px 10px rgba(0, 0, 0, 0.219);
+
+  --gradiente-principal: linear-gradient(135deg, #1e293b, #334155);
+  --gradiente-accion: linear-gradient(135deg, #e05c5c, #c91616);
+
   --radius: 18px;
 }
-
 /* VISTA B —  */
 
 /* :root {
