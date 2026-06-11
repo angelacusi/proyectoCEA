@@ -1,20 +1,14 @@
 <script setup>
-defineProps({
+import { ref, watch } from "vue";
+
+const { formulario } = defineProps({
   formulario: Object,
 });
-
-import { ref, watch } from "vue";
 
 const ocupacionSeleccionada = ref("");
 
 watch(ocupacionSeleccionada, (valor) => {
-  if (valor !== "Otro") {
-    formulario.ocupacion = valor;
-  }
-
-  if (valor === "Otro") {
-    formulario.ocupacion = "";
-  }
+  formulario.ocupacion = valor === "Otro" ? "" : valor;
 });
 </script>
 
@@ -24,7 +18,7 @@ watch(ocupacionSeleccionada, (valor) => {
 
     <!-- OCUPACIÓN -->
 
-    <div class="row align-items-end mb-4">
+    <div class="row mb-4 text-start">
       <div class="col-md-6">
         <label class="form-label small">
           ¿Cuál es la ocupación de la o el estudiante?
@@ -54,7 +48,7 @@ watch(ocupacionSeleccionada, (valor) => {
     </div>
     <!-- TRABAJO -->
 
-    <div class="row mb-4">
+    <div class="row mb-4 text-start">
       <!-- TURNO -->
 
       <div class="col-md-4">
@@ -202,7 +196,7 @@ watch(ocupacionSeleccionada, (valor) => {
 
     <!-- TRANSPORTE -->
 
-    <div class="row">
+    <div class="row text-start">
       <div class="col-md-6 mb-3">
         <label class="form-label small">
           ¿Qué medio de transporte utiliza frecuentemente?
@@ -254,7 +248,7 @@ watch(ocupacionSeleccionada, (valor) => {
 
     <h6 class="mb-3">Tiene acceso a</h6>
 
-    <div class="row">
+    <div class="row text-start">
       <div class="col-md-4 form-check">
         <input
           class="form-check-input"
@@ -305,7 +299,7 @@ watch(ocupacionSeleccionada, (valor) => {
 
     <!-- SERVICIOS -->
 
-    <div class="row">
+    <div class="row text-start">
       <div class="col-md-3 mb-3">
         <label class="form-label small"> Agua potable </label>
 

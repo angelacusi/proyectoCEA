@@ -21,8 +21,8 @@
 
   --borde: #cbb4b4;
 
-  --sombra: 10px 10px 40px 15px rgba(0, 0, 0, 0.162);
-  --sombra-hover: 8px 8px 30px 10px rgba(0, 0, 0, 0.219);
+  --sombra: 5px 5px 10px 5px rgba(0, 0, 0, 0.162);
+  --sombra-hover: 8px 8px 20px 10px rgba(0, 0, 0, 0.219);
 
   --gradiente-principal: linear-gradient(135deg, #1e293b, #334155);
   --gradiente-accion: linear-gradient(135deg, #e05c5c, #c91616);

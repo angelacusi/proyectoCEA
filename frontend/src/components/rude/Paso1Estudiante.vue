@@ -9,32 +9,32 @@ defineProps({
     <h5 class="mb-3">Datos del estudiante</h5>
 
     <div class="row">
-      <div class="col-md-4 mb-3">
+      <div class="col-md-4 mb-3 text-start">
         <label class="form-label">Apellido paterno</label>
         <input class="form-control" v-model="formulario.apPaterno" />
       </div>
 
-      <div class="col-md-4 mb-3">
+      <div class="col-md-4 mb-3 text-start">
         <label class="form-label">Apellido materno</label>
         <input class="form-control" v-model="formulario.apMaterno" />
       </div>
 
-      <div class="col-md-4 mb-3">
+      <div class="col-md-4 mb-3 text-start">
         <label class="form-label">Nombre(s)</label>
         <input class="form-control" v-model="formulario.nombres" />
       </div>
 
-      <div class="col-md-4 mb-3">
+      <div class="col-md-4 mb-3 text-start">
         <label class="form-label">CI</label>
         <input class="form-control" v-model="formulario.ci" />
       </div>
 
-      <div class="col-md-4 mb-3">
+      <div class="col-md-4 mb-3 text-start">
         <label class="form-label">Complemento</label>
         <input class="form-control" v-model="formulario.complemento" />
       </div>
 
-      <div class="col-md-4 mb-3">
+      <div class="col-md-4 mb-3 text-start text-start">
         <label class="form-label">Expedido</label>
 
         <select class="form-select" v-model="formulario.expedido">
@@ -51,7 +51,7 @@ defineProps({
         </select>
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-md-6 mb-3 text-start">
         <label class="form-label">Fecha de nacimiento</label>
 
         <input
@@ -61,7 +61,7 @@ defineProps({
         />
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-md-6 mb-3 text-start">
         <label class="form-label">Sexo</label>
 
         <select class="form-select" v-model="formulario.sexo">
@@ -71,13 +71,14 @@ defineProps({
         </select>
       </div>
 
-      <div class="col-md-3 mb-3">
+      <h5>Lugar de nacimiento:</h5>
+      <div class="col-md-3 mb-3 text-start">
         <label class="form-label">País</label>
 
         <input class="form-control" v-model="formulario.paisNacimiento" />
       </div>
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-3 mb-3 text-start">
         <label class="form-label">Departamento</label>
 
         <input
@@ -86,19 +87,19 @@ defineProps({
         />
       </div>
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-3 mb-3 text-start">
         <label class="form-label">Provincia</label>
 
         <input class="form-control" v-model="formulario.provinciaNacimiento" />
       </div>
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-3 mb-3 text-start">
         <label class="form-label">Localidad</label>
 
         <input class="form-control" v-model="formulario.localidadNacimiento" />
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-md-6 mb-3 text-start">
         <label class="form-label"> Número de hijos </label>
 
         <input
@@ -108,7 +109,7 @@ defineProps({
         />
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-md-6 mb-3 text-start">
         <label class="form-label"> Estado civil </label>
 
         <select class="form-select" v-model="formulario.estadoCivil">

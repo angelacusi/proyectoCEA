@@ -21,7 +21,7 @@ const turnos = ["Mañana", "Tarde", "Noche"];
   <div>
     <h5 class="mb-4">Datos de inscripción</h5>
 
-    <div class="row">
+    <div class="row text-start">
       <div class="col-md-6 mb-3">
         <label class="form-label"> Modalidad de estudio </label>
 
@@ -83,16 +83,6 @@ const turnos = ["Mañana", "Tarde", "Noche"];
       <p class="mb-1">
         <strong>Carrera:</strong>
         {{ formulario.carrera }}
-      </p>
-
-      <p class="mb-1">
-        <strong>Modalidad:</strong>
-        {{ formulario.modalidadEstudio }}
-      </p>
-
-      <p class="mb-1">
-        <strong>Turno:</strong>
-        {{ formulario.turnoEstudio }}
       </p>
     </div>
   </div>

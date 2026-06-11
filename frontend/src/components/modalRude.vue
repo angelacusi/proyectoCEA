@@ -23,7 +23,7 @@ const steps = [
 
 const generarPDF = () => {
   console.log("Datos del formulario:");
-  console.log(toRaw(formulario));
+  console.log(formulario);
 };
 
 const formulario = reactive({
@@ -160,7 +160,7 @@ const anteriorPaso = () => {
           <button type="button" class="btn-close" data-bs-dismiss="modal" />
         </div>
 
-        <div class="modal-body pt-0">
+        <div class="modal-body">
           <Stepper :currentStep="pasoActual" :steps="steps" />
 
           <Paso1Estudiante v-if="pasoActual === 1" :formulario="formulario" />

@@ -135,7 +135,8 @@ const carreras = [
   {
     id: 8,
     nombre: "Mecánica Industrial",
-    descripcion: "La propuesta de Formación se .",
+    descripcion:
+      "La propuesta de Formación se orienta a formar técnicos comprometidos con el desarrollo del país, con sólidos conocimientos, habilidades y destrezas en la producción, manufacturación, etc.",
     alcance: "Técnico Básico, Auxiliar y Medio",
     duracion: "2 año ",
     imagen: mecanicaIndustrial,

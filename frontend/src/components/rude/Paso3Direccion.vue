@@ -8,7 +8,7 @@ defineProps({
   <div>
     <h5 class="mb-3">Dirección actual</h5>
 
-    <div class="row">
+    <div class="row text-start">
       <div class="col-md-6 mb-3">
         <label class="form-label">Departamento</label>
         <input class="form-control" v-model="formulario.departamento" />
