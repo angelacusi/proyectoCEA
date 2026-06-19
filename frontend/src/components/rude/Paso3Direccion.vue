@@ -6,145 +6,120 @@ defineProps({
 
 <template>
   <div>
-    <h5 class="mb-3">Dirección actual</h5>
+    <h6 class="fw-bold mb-4">6. EDUCACIÓN DIVERSA</h6>
 
-    <div class="row text-start">
-      <div class="col-md-6 mb-3">
-        <label class="form-label">Departamento</label>
-        <input class="form-control" v-model="formulario.departamento" />
-      </div>
-
-      <div class="col-md-6 mb-3">
-        <label class="form-label">Provincia</label>
-        <input class="form-control" v-model="formulario.provincia" />
-      </div>
-
-      <div class="col-md-6 mb-3">
-        <label class="form-label">Municipio</label>
-        <input class="form-control" v-model="formulario.municipio" />
-      </div>
-
-      <div class="col-md-6 mb-3">
-        <label class="form-label">Localidad</label>
-        <input class="form-control" v-model="formulario.localidad" />
-      </div>
-
-      <div class="col-md-6 mb-3">
-        <label class="form-label">Zona / Villa</label>
-        <input class="form-control" v-model="formulario.zona" />
-      </div>
-
-      <div class="col-md-6 mb-3">
-        <label class="form-label">Avenida / Calle</label>
-        <input class="form-control" v-model="formulario.calle" />
-      </div>
-
-      <div class="col-md-4 mb-3">
-        <label class="form-label">N° Vivienda</label>
-        <input class="form-control" v-model="formulario.numeroVivienda" />
-      </div>
-
-      <div class="col-md-4 mb-3">
-        <label class="form-label">Celular</label>
-        <input class="form-control" v-model="formulario.celular" />
-      </div>
-
-      <div class="col-md-4 mb-3">
-        <label class="form-label">Teléfono</label>
-        <input class="form-control" v-model="formulario.telefono" />
-      </div>
-    </div>
-
-    <hr />
-
-    <h5 class="mb-3">Educación diversa</h5>
-
-    <p class="mb-4">
+    <p class="small text-muted mb-4">
       Registre si el/la estudiante/participante pertenece a algún contexto
-      diverso:
+      diverso.
     </p>
 
-    <!-- SOLDADO -->
+    <!-- 6.1 SOLDADOS Y MARINEROS -->
+    <h6 class="fw-bold mt-3">6.1. SOLDADOS Y MARINEROS</h6>
 
-    <div class="row align-items-center mb-3">
-      <div class="col-md-5">
-        <label class="form-label mb-0"> Soldados y Marineros </label>
-      </div>
-
-      <div class="col-md-2">
-        <select class="form-select" v-model="formulario.esSoldado">
-          <option :value="false">No</option>
-          <option :value="true">Sí</option>
-        </select>
-      </div>
-
-      <div class="col-md-5">
+    <div class="mb-3">
+      <div class="form-check form-check-inline">
         <input
-          class="form-control"
-          placeholder="Nombre de la unidad militar"
-          v-model="formulario.unidadMilitar"
-          :disabled="!formulario.esSoldado"
+          class="form-check-input"
+          type="radio"
+          :value="true"
+          v-model="formulario.esSoldado"
         />
+        <label class="form-check-label small"> Sí </label>
+      </div>
+
+      <div class="form-check form-check-inline ms-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          :value="false"
+          v-model="formulario.esSoldado"
+        />
+        <label class="form-check-label small"> No </label>
       </div>
     </div>
 
-    <!-- CONTEXTO DE ENCIERRO -->
+    <div v-if="formulario.esSoldado" class="mb-4">
+      <label class="form-label small fw-bold">
+        Nombre de la Región/Unidad Militar
+      </label>
 
-    <div class="row align-items-center mb-3">
-      <div class="col-md-5">
-        <label class="form-label mb-0"> Contexto de encierro </label>
-      </div>
+      <input
+        class="form-control form-control-sm"
+        v-model="formulario.unidadMilitar"
+      />
+    </div>
 
-      <div class="col-md-2">
-        <select class="form-select" v-model="formulario.contextoEncierro">
-          <option :value="false">No</option>
-          <option :value="true">Sí</option>
-        </select>
-      </div>
+    <!-- 6.2 CONTEXTO DE ENCIERRO -->
+    <h6 class="fw-bold mt-3">6.2. CONTEXTO DE ENCIERRO</h6>
 
-      <div class="col-md-5">
+    <div class="mb-3">
+      <div class="form-check form-check-inline">
         <input
-          class="form-control"
-          placeholder="Centro penitenciario o rehabilitación"
-          v-model="formulario.centroPenitenciario"
-          :disabled="!formulario.contextoEncierro"
+          class="form-check-input"
+          type="radio"
+          :value="true"
+          v-model="formulario.contextoEncierro"
         />
+        <label class="form-check-label small"> Sí </label>
+      </div>
+
+      <div class="form-check form-check-inline ms-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          :value="false"
+          v-model="formulario.contextoEncierro"
+        />
+        <label class="form-check-label small"> No </label>
       </div>
     </div>
 
-    <!-- TRABAJADORA DEL HOGAR -->
+    <div v-if="formulario.contextoEncierro" class="mb-4">
+      <label class="form-label small fw-bold">
+        Nombre del Centro Penitenciario/Centro de Rehabilitación
+      </label>
 
-    <div class="row align-items-center mb-3">
-      <div class="col-md-5">
-        <label class="form-label mb-0">
-          Trabajadora asalariada del hogar
-        </label>
-      </div>
-
-      <div class="col-md-2">
-        <select class="form-select" v-model="formulario.trabajadoraHogar">
-          <option :value="false">No</option>
-          <option :value="true">Sí</option>
-        </select>
-      </div>
-
-      <div class="col-md-5"></div>
+      <input
+        class="form-control form-control-sm"
+        v-model="formulario.centroPenitenciario"
+      />
     </div>
 
-    <!-- OTRO -->
+    <!-- 6.3 TRABAJADORAS ASALARIADAS DEL HOGAR -->
+    <h6 class="fw-bold mt-3">6.3. TRABAJADORAS ASALARIADAS DEL HOGAR</h6>
 
-    <div class="row align-items-center">
-      <div class="col-md-5">
-        <label class="form-label mb-0"> Otro contexto </label>
-      </div>
-
-      <div class="col-md-7">
+    <div class="mb-4">
+      <div class="form-check form-check-inline">
         <input
-          class="form-control"
-          placeholder="Especifique"
-          v-model="formulario.otroContexto"
+          class="form-check-input"
+          type="radio"
+          :value="true"
+          v-model="formulario.trabajadoraHogar"
         />
+        <label class="form-check-label small"> Sí </label>
       </div>
+
+      <div class="form-check form-check-inline ms-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          :value="false"
+          v-model="formulario.trabajadoraHogar"
+        />
+        <label class="form-check-label small"> No </label>
+      </div>
+    </div>
+
+    <!-- 6.4 OTROS -->
+    <h6 class="fw-bold mt-3">6.4. OTROS</h6>
+
+    <div class="mb-3">
+      <label class="form-label small fw-bold"> Especifique </label>
+
+      <input
+        class="form-control form-control-sm"
+        v-model="formulario.otroContexto"
+      />
     </div>
   </div>
 </template>
