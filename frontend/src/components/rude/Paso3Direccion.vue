@@ -6,6 +6,84 @@ defineProps({
 
 <template>
   <div>
+    <!-- 5. DIRECCIÓN ACTUAL -->
+    <h6 class="fw-bold mb-3">
+      5. DIRECCIÓN ACTUAL DEL ESTUDIANTE/PARTICIPANTE
+    </h6>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label class="form-label small fw-bold">Departamento</label>
+        <input
+          class="form-control form-control-sm"
+          v-model="formulario.departamento"
+        />
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label class="form-label small fw-bold">Provincia</label>
+        <input
+          class="form-control form-control-sm"
+          v-model="formulario.provincia"
+        />
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label class="form-label small fw-bold">Sección/Municipio</label>
+        <input
+          class="form-control form-control-sm"
+          v-model="formulario.municipio"
+        />
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label class="form-label small fw-bold">Localidad/Comunidad</label>
+        <input
+          class="form-control form-control-sm"
+          v-model="formulario.localidad"
+        />
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label class="form-label small fw-bold">Zona/Villa</label>
+        <input class="form-control form-control-sm" v-model="formulario.zona" />
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label class="form-label small fw-bold">Avenida/Calle</label>
+        <input
+          class="form-control form-control-sm"
+          v-model="formulario.calle"
+        />
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label class="form-label small fw-bold">Nº de vivienda</label>
+        <input
+          class="form-control form-control-sm"
+          v-model="formulario.numeroVivienda"
+        />
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label class="form-label small fw-bold">Celular de contacto</label>
+        <input
+          class="form-control form-control-sm"
+          v-model="formulario.celular"
+        />
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <label class="form-label small fw-bold">Teléfono fijo</label>
+        <input
+          class="form-control form-control-sm"
+          v-model="formulario.telefono"
+        />
+      </div>
+    </div>
+
+    <hr class="my-4" />
+
     <h6 class="fw-bold mb-4">6. EDUCACIÓN DIVERSA</h6>
 
     <p class="small text-muted mb-4">

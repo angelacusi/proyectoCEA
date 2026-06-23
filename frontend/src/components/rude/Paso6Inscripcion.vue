@@ -18,7 +18,7 @@ const turnos = ["Mañana", "Tarde", "Noche"];
 
 const niveles = ["Técnico Básico", "Técnico Auxiliar", "Técnico Medio"];
 
-const semestres = ["1er Semestre", "2do Semestre"];
+const semestres = ["Primer semestre", "Segundo semestre"];
 </script>
 
 <template>
@@ -75,7 +75,7 @@ const semestres = ["1er Semestre", "2do Semestre"];
             class="form-check-input"
             type="radio"
             :value="semestre"
-            v-model="formulario.semestreETTP"
+            v-model="formulario.semestre"
           />
 
           <label class="form-check-label small">
@@ -97,7 +97,7 @@ const semestres = ["1er Semestre", "2do Semestre"];
             class="form-check-input"
             type="radio"
             :value="nivel"
-            v-model="formulario.nivelTecnico"
+            v-model="formulario.nivel"
           />
 
           <label class="form-check-label small">

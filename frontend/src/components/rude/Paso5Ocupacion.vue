@@ -4,16 +4,6 @@ import { ref, watch } from "vue";
 const { formulario } = defineProps({
   formulario: Object,
 });
-
-const ocupacionSeleccionada = ref(formulario.ocupacion || "");
-
-watch(ocupacionSeleccionada, (valor) => {
-  if (valor !== "Otro") {
-    formulario.ocupacion = valor;
-  } else {
-    formulario.ocupacionOtro = "";
-  }
-});
 </script>
 
 <template>
@@ -46,7 +36,7 @@ watch(ocupacionSeleccionada, (valor) => {
               class="form-check-input"
               type="radio"
               :value="ocupacion"
-              v-model="ocupacionSeleccionada"
+              v-model="formulario.ocupacion"
             />
 
             <label class="form-check-label small">
@@ -55,7 +45,7 @@ watch(ocupacionSeleccionada, (valor) => {
           </div>
         </div>
 
-        <div v-if="ocupacionSeleccionada === 'Otro'" class="mt-2 col-md-8">
+        <div v-if="formulario.ocupacion === 'Otro'" class="mt-2 col-md-8">
           <input
             class="form-control form-control-sm"
             placeholder="Especifique la ocupación"
@@ -315,7 +305,7 @@ watch(ocupacionSeleccionada, (valor) => {
               class="form-check-input"
               type="checkbox"
               :value="medio"
-              v-model="formulario.mediosComunicacion"
+              v-model="formulario.accesoComunicacion"
             />
 
             <label class="form-check-label small">

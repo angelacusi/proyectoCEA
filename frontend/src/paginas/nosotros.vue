@@ -1,15 +1,21 @@
 <template>
+  <!-- HERO -->
   <section class="hero-nosotros">
     <img src="../assets/instituto.png" alt="Instituto" />
 
     <div class="overlay">
       <h1>Nosotros</h1>
 
-      <p>Conoce más sobre nuestra institución y nuestra formación técnica.</p>
+      <p>
+        Conoce más sobre el Centro de Educación Alternativa Boliviano Alemán y
+        nuestra formación técnica.
+      </p>
     </div>
   </section>
 
+  <!-- MISIÓN - VISIÓN - OBJETIVOS -->
   <section class="contenedor-info">
+    <!-- Misión -->
     <div class="card-info">
       <div class="circulo"></div>
 
@@ -18,13 +24,14 @@
       <h2>Misión</h2>
 
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat ipsa
-        nesciunt suscipit deserunt ad dolores, recusandae fugiat necessitatibus
-        quos, architecto tempora natus fuga nisi sed mollitia quibusdam sapiente
-        quam aspernatur!
+        Formar profesionales íntegros con valores morales y éticos, con
+        formación técnica, tecnológica, científica y productiva. Desarrollamos
+        personas creativas, innovadoras y con actitud emprendedora, capaces de
+        responder a las necesidades del mercado laboral y de la sociedad.
       </p>
     </div>
 
+    <!-- Visión -->
     <div class="card-info">
       <div class="circulo"></div>
 
@@ -33,53 +40,77 @@
       <h2>Visión</h2>
 
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-        molestias in dignissimos doloremque nostrum magni ut error quos ipsam,
-        molestiae ipsa accusamus expedita quod eveniet similique ipsum? Quasi,
-        consequatur minus.
+        Ser un Centro de Educación Alternativa de excelencia académica,
+        reconocido por formar mujeres y hombres competitivos en el ámbito
+        laboral y empresarial, fundamentados en principios, valores éticos y
+        comunitarios orientados al vivir bien.
       </p>
     </div>
 
-    <div class="card-info">
+    <!-- Objetivos -->
+    <div class="card-info card-objetivos">
       <div class="circulo"></div>
 
       <div class="icono">🚀</div>
 
       <h2>Objetivos</h2>
 
+      <p>
+        Capacitar a las y los participantes con conocimientos, habilidades y
+        destrezas que les permitan:
+      </p>
+
       <ul>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur,
-        suscipit mollitia ipsa quo repellendus explicabo laborum ex fuga
-        assumenda perspiciatis est a maxime repellat neque. Explicabo ea fugiat
-        commodi reiciendis?
+        <li>
+          Planificar, organizar y ejecutar procesos técnicos y tecnológicos de
+          acuerdo con la especialidad elegida.
+        </li>
+
+        <li>
+          Aplicar conocimientos científicos y prácticos en la solución de
+          problemas del entorno laboral y social.
+        </li>
+
+        <li>
+          Desarrollar capacidades de liderazgo, innovación y emprendimiento.
+        </li>
+
+        <li>
+          Integrarse al mercado laboral con responsabilidad, honestidad y
+          compromiso con la sociedad.
+        </li>
       </ul>
     </div>
   </section>
 
+  <!-- REQUISITOS -->
   <section class="requisitos">
     <h2>Requisitos de inscripción</h2>
+
     <p class="subtitulo">
-      Necesario para iniciar tu formación técnica con nosotros.
+      Documentos necesarios para iniciar el proceso de inscripción.
     </p>
+
     <div class="lista-requisitos">
       <div class="req">Ser mayor de 15 años</div>
 
-      <div class="req">3 Fotocopias de carnet</div>
+      <div class="req">3 fotocopias de Cédula de Identidad</div>
 
-      <div class="req">2 fotocopias de Cert. Nacimiento</div>
+      <div class="req">2 fotocopias del Certificado de Nacimiento</div>
 
       <div class="req">Fotografías tamaño 4x4</div>
 
-      <div class="req">Llenado de RUE</div>
+      <div class="req">Formulario RUDEAL correctamente llenado</div>
 
-      <div class="req">Completamente gratis</div>
+      <div class="req">Inscripción completamente gratuita</div>
     </div>
   </section>
 
+  <!-- INFORMACIÓN ACADÉMICA -->
   <section class="info-academica">
     <h2>Información académica</h2>
 
-    <p class="subtitulo">Conoce la modalidad y horarios de nuestras clases</p>
+    <p class="subtitulo">Conoce la modalidad y horarios de nuestras clases.</p>
 
     <div class="info-grid">
       <div class="info-box">
@@ -95,7 +126,7 @@
 
         <h3>Horario</h3>
 
-        <p>7:00 PM - 9:40 PM</p>
+        <p>19:00 PM - 21:40 PM</p>
       </div>
 
       <div class="info-box">
@@ -103,29 +134,60 @@
 
         <h3>Días de clases</h3>
 
-        <p>Lunes a Viernes</p>
+        <p>Lunes a viernes</p>
       </div>
     </div>
   </section>
+  <!-- PROCESO DE INSCRIPCIÓN -->
 
-  <!-- INSCRIBETE -->
+  <section class="inscripcion-rude">
+    <h2>Proceso de inscripción</h2>
 
-  <section class="inscribete">
-    <h2>¡Construye tu futuro hoy!</h2>
+    <p class="subtitulo">
+      Complete el RUDEAL y adjúntelo junto con los demás requisitos solicitados
+      por el Centro de Educación Alternativa.
+    </p>
 
-    <p>Llena el RUDE y forma parte del C.E.A. Boliviano Alemán</p>
+    <div class="opciones-inscripcion">
+      <!-- Descargar RUDE vacío -->
+      <div class="opcion-card">
+        <div class="icono-opcion">📄</div>
 
-    <button
-      type="button"
-      data-bs-toggle="modal"
-      data-bs-target="#modalRude"
-      class="btn-inscripcion"
-    >
-      llenar RUDE
-    </button>
+        <h3>Descargar RUDEAL en blanco</h3>
+
+        <p>
+          Descargue el formulario oficial para llenarlo manualmente y entregarlo
+          en nuestras instalaciones.
+        </p>
+
+        <a href="/rude.pdf" download class="btn-rude"> Descargar RUDEAL </a>
+      </div>
+
+      <!-- Llenar RUDE digital -->
+      <div class="opcion-card">
+        <div class="icono-opcion">💻</div>
+
+        <h3>Llenar RUDEAL digitalmente</h3>
+
+        <p>
+          Complete el formulario en línea, genere su RUDEAL en PDF y
+          posteriormente imprímalo para presentarlo junto a los demás documentos
+          de inscripción.
+        </p>
+
+        <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#modalRude"
+          class="btn-rude"
+        >
+          Llenar RUDEAL digital
+        </button>
+      </div>
+    </div>
+
     <modalRude />
   </section>
-
   <section class="contacto">
     <h2>C.E.A. Boliviano Alemán</h2>
 

@@ -78,4 +78,23 @@
 
 <script setup>
 import "../styles/navbar.css";
+import { onMounted, onUnmounted } from "vue";
+
+const cambiarNavbar = () => {
+  const navbar = document.querySelector(".custom-navbar");
+
+  if (window.scrollY > 80) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", cambiarNavbar);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", cambiarNavbar);
+});
 </script>

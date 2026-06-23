@@ -6,9 +6,13 @@ defineProps({
 
 <template>
   <div>
+    <div class="alert alert-primary" role="alert">
+      Los campos marcados con <strong>(**)</strong> requieren la presentación
+      obligatoria del documento de respaldo.
+    </div>
     <div class="row">
       <!-- 2.1 Apellidos y nombres -->
-      <h6 class="fw-bold mb-2">2.1. APELLIDO(S) Y NOMBRE(S) (**)</h6>
+      <h6 class="fw-bold mb-2">2.1. APELLIDO(S) Y NOMBRE(S)</h6>
 
       <div class="col-md-4 mb-2 text-start">
         <label class="form-label small">Apellido paterno</label>
@@ -105,7 +109,7 @@ defineProps({
       </div>
 
       <!-- 2.4 Certificado de nacimiento -->
-      <h6 class="fw-bold mt-3 mb-2">2.4. CERTIFICADO DE NACIMIENTO</h6>
+      <h6 class="fw-bold mt-3 mb-2">(**) 2.4. CERTIFICADO DE NACIMIENTO</h6>
 
       <div class="col-md-3 mb-2 text-start">
         <label class="form-label small">Oficialía Nº</label>

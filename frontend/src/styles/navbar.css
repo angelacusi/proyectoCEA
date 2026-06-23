@@ -1,7 +1,45 @@
+/* navbar base */
 .custom-navbar {
-  background: var(--navbar);
+  background: var(--navbar-bg);
   box-shadow: var(--sombra-hover);
   padding: 0;
+  transition: all 0.3s ease;
+  position: sticky !important;
+  top: 0;
+  z-index: 1050;
+}
+
+/* animación suave */
+.logo-container img,
+.logo-texto {
+  transition: all 0.5s ease-in-out;
+}
+
+/* estado normal */
+.logo-texto {
+  max-height: 100px;
+  opacity: 1;
+  transform: translateY(0);
+  overflow: hidden;
+}
+
+/* AL HACER SCROLL */
+.custom-navbar.scrolled .logo-container img {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.custom-navbar.scrolled .logo-texto {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  overflow: hidden;
+}
+
+.custom-navbar.scrolled .logo-container {
+  gap: 0;
 }
 
 .navbar-brand {
@@ -18,7 +56,9 @@
 }
 
 .logo-container img {
+  width: 85px;
   height: 85px;
+  object-fit: contain;
   transition: 0.3s;
 }
 
@@ -105,6 +145,8 @@
 
   .logo-container img {
     width: 55px;
+    height: 55px;
+    object-fit: contain;
   }
 
   .logo-texto h1 {

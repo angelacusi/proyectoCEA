@@ -18,7 +18,7 @@ defineProps({
         :value="true"
         v-model="formulario.tieneDiscapacidad"
       />
-      <label class="form-check-label small"> Sí (Pase a 3.1.1) </label>
+      <label class="form-check-label small"> Sí </label>
     </div>
 
     <div class="form-check form-check-inline ms-4">
@@ -34,7 +34,7 @@ defineProps({
 
   <div v-if="formulario.tieneDiscapacidad">
     <!-- 3.1.1 Carnet -->
-    <h6 class="fw-bold mt-4">3.1.1 CARNET DE DISCAPACIDAD (**)</h6>
+    <h6 class="fw-bold mt-4">(**) 3.1.1 CARNET DE DISCAPACIDAD</h6>
 
     <p class="small text-muted">
       Seleccione el registro presentado e introduzca el número correspondiente.
@@ -52,7 +52,7 @@ defineProps({
               class="form-check-input"
               type="radio"
               value="CODEPEDIS"
-              v-model="formulario.tipoRegistroDiscapacidad"
+              v-model="formulario.tipoRegistro"
             />
             <label class="form-check-label small"> CODEPEDIS </label>
           </div>
@@ -62,7 +62,7 @@ defineProps({
               class="form-check-input"
               type="radio"
               value="IBC"
-              v-model="formulario.tipoRegistroDiscapacidad"
+              v-model="formulario.tipoRegistro"
             />
             <label class="form-check-label small"> IBC </label>
           </div>
@@ -73,13 +73,13 @@ defineProps({
 
         <input
           class="form-control form-control-sm"
-          v-model="formulario.numeroRegistroDiscapacidad"
+          v-model="formulario.nDiscapacidad"
         />
       </div>
     </div>
 
     <!-- 3.1.2 Tipo y grado -->
-    <h6 class="fw-bold mt-4">3.1.2 TIPOS Y GRADOS DE DISCAPACIDAD (**)</h6>
+    <h6 class="fw-bold mt-4">(**) 3.1.2 TIPOS Y GRADOS DE DISCAPACIDAD</h6>
 
     <p class="small text-muted">
       Identifique el tipo y el grado indicado en el carnet de discapacidad.
@@ -204,7 +204,7 @@ defineProps({
         :value="true"
         v-model="formulario.tieneTEA"
       />
-      <label class="form-check-label small"> Sí (Pase a 3.2.1) </label>
+      <label class="form-check-label small"> Sí </label>
     </div>
 
     <div class="form-check form-check-inline ms-4">
@@ -311,7 +311,7 @@ defineProps({
 
     <div class="mb-3 col-md-6">
       <label class="form-label small fw-bold">
-        Código del documento presentado
+        Código del documento presentado (adjunte fotocopia del documento)
       </label>
 
       <input
