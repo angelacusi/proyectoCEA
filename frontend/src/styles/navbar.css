@@ -1,29 +1,67 @@
-/* navbar base */
 .custom-navbar {
   background: var(--navbar-bg);
   box-shadow: var(--sombra-hover);
   padding: 0;
-  transition: all 0.3s ease;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
   position: sticky !important;
   top: 0;
   z-index: 1050;
 }
 
-/* animación suave */
-.logo-container img,
-.logo-texto {
-  transition: all 0.5s ease-in-out;
+/* 
+  LOGO Y TEXTO INSTITUCIONAL
+ */
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
 }
 
-/* estado normal */
+.logo-container img {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.logo-container:hover img {
+  transform: scale(1.03);
+}
+
 .logo-texto {
   max-height: 100px;
   opacity: 1;
-  transform: translateY(0);
   overflow: hidden;
+  transform: translateY(0);
+  transition: all 0.3s ease;
 }
 
-/* AL HACER SCROLL */
+.logo-texto h1 {
+  font-size: 1.4rem;
+  margin: 0;
+  color: var(--principal);
+  font-weight: 700;
+}
+
+.logo-texto p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--texto-secundario);
+}
+
+.navbar-brand {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* =========================
+   NAVBAR AL HACER SCROLL
+========================= */
+
 .custom-navbar.scrolled .logo-container img {
   width: 0;
   height: 0;
@@ -42,84 +80,146 @@
   gap: 0;
 }
 
-.navbar-brand {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-/* LOGO */
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  text-decoration: none;
-}
-
-.logo-container img {
-  width: 85px;
-  height: 85px;
-  object-fit: contain;
-  transition: 0.3s;
-}
-
-.logo-container:hover img {
-  transform: scale(1.03);
-}
-
-/* TEXTO */
-
-.logo-texto h1 {
-  font-size: 1.4rem;
-  margin: 0;
-  color: var(--principal);
-  font-weight: 700;
-}
-
-.logo-texto p {
-  margin: 0;
-  font-size: 0.8rem;
-  color: var(--texto-secundario);
-}
-
-/* LINKS */
+/* =========================
+   ENLACES DEL NAVBAR
+========================= */
 
 .navbar-nav {
-  gap: 15px;
+  gap: 20px;
 }
 
-.nav-link {
-  font-weight: 500;
-  color: var(--navbar-texto);
+.navbar-nav .nav-link {
   position: relative;
-  transition: 0.4s;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 10px 0 !important;
+  color: var(--principal);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.25s ease;
 }
 
-/* hover line */
-.nav-link::after {
+/* Línea inferior */
+
+.navbar-nav .nav-link::after {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -3px;
-  transform: translateX(-50%);
+  bottom: 3px;
   width: 0;
   height: 2px;
   background: var(--accion);
-  transition: 0.4s;
+  transform: translateX(-50%);
+  transition: width 0.25s ease;
 }
 
-.nav-link:hover::after,
-.router-link-exact-active::after {
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus-visible {
+  color: var(--accion);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link:focus-visible::after,
+.navbar-nav .nav-link.router-link-exact-active::after,
+.navbar-nav .nav-link.categoria-activa::after {
   width: 100%;
 }
 
-/* active */
+/* Enlaces de la página actual */
 
-.router-link-exact-active {
-  color: var(--accion) !important;
-  font-weight: 600 !important;
+.navbar-nav .nav-link.router-link-exact-active,
+.navbar-nav .nav-link.categoria-activa {
+  color: var(--accion);
+  font-weight: 600;
 }
 
-/* toggler */
+/* =========================
+   BOTÓN PUBLICACIONES
+========================= */
+
+.dropdown-publicaciones {
+  position: relative;
+}
+
+.boton-publicaciones {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  gap: 7px;
+}
+
+.flecha-publicaciones {
+  display: inline-block;
+  font-size: 0.7rem;
+  transition: transform 0.25s ease;
+}
+
+.dropdown-publicaciones.desplegado .flecha-publicaciones {
+  transform: rotate(180deg);
+}
+
+/* =========================
+   SUBMENÚ PUBLICACIONES
+========================= */
+
+.submenu-publicaciones {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: -12px;
+  z-index: 1100;
+
+  min-width: 205px;
+  margin: 0;
+  padding: 8px;
+
+  list-style: none;
+  background: var(--navbar-bg);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+}
+
+/* Cada opción se ve como un enlace del navbar,
+   pero con un espacio cómodo para hacer clic. */
+
+.submenu-publicaciones .submenu-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  padding: 11px 12px !important;
+  border-radius: 8px;
+
+  color: var(--principal);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+/* El submenú no necesita la línea inferior del navbar */
+
+.submenu-publicaciones .submenu-link::after {
+  display: none;
+}
+
+.submenu-publicaciones .submenu-link:hover,
+.submenu-publicaciones .submenu-link:focus-visible,
+.submenu-publicaciones .submenu-link.categoria-activa {
+  background: var(--fondo-alt);
+  color: var(--accion);
+}
+
+/* =========================
+   BOTÓN MÓVIL
+========================= */
 
 .navbar-toggler {
   border: none;
@@ -129,16 +229,61 @@
   box-shadow: none;
 }
 
-/* OFFCANVAS */
+/* =========================
+   OFFCANVAS MÓVIL
+========================= */
 
 .offcanvas {
   background: var(--fondo) !important;
   width: 320px !important;
+  max-width: 90vw;
   height: 100vh !important;
   top: 0;
 }
 
-@media (max-width: 576px) {
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    gap: 5px;
+  }
+
+  .navbar-nav .nav-link {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px 10px !important;
+  }
+
+  .navbar-nav .nav-link::after {
+    display: none;
+  }
+
+  .boton-publicaciones {
+    justify-content: space-between;
+  }
+
+  .submenu-publicaciones {
+    position: static;
+    min-width: 0;
+    margin: 0 0 8px 12px;
+    padding: 4px;
+
+    border: none;
+    border-left: 2px solid var(--secundario);
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .submenu-publicaciones .submenu-link {
+    padding: 11px 12px !important;
+  }
+}
+
+@media (max-width: 768px) {
   .logo-container {
     gap: 8px;
   }
@@ -146,7 +291,6 @@
   .logo-container img {
     width: 55px;
     height: 55px;
-    object-fit: contain;
   }
 
   .logo-texto h1 {
@@ -155,5 +299,16 @@
 
   .logo-texto p {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .custom-navbar,
+  .logo-container img,
+  .logo-texto,
+  .navbar-nav .nav-link,
+  .navbar-nav .nav-link::after,
+  .flecha-publicaciones {
+    transition: none;
   }
 }

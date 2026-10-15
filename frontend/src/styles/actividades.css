@@ -1,0 +1,411 @@
+/* ========================================
+   ACTIVIDADES
+======================================== */
+
+.actividades {
+  width: min(100% - 40px, 1200px);
+  margin: 0 auto;
+  padding: 32px 0 56px;
+  color: var(--texto);
+}
+
+/* Encabezado compacto */
+
+.encabezado-actividades {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.etiqueta-actividades {
+  margin: 0 0 5px;
+  color: var(--accion);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.encabezado-actividades h2 {
+  margin: 0;
+  color: var(--principal);
+  font-size: clamp(1.65rem, 3vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.subtitulo-actividades {
+  max-width: 650px;
+  margin: 8px 0 0;
+  color: var(--texto-secundario);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+/* ========================================
+   FILTROS
+======================================== */
+
+.filtros-actividades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 24px;
+}
+
+.boton-filtro-actividad {
+  padding: 8px 15px;
+  color: var(--principal);
+  background: transparent;
+  border: 1px solid var(--borde);
+  border-radius: 30px;
+  font-size: 0.87rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.boton-filtro-actividad:hover,
+.boton-filtro-actividad.activo {
+  color: var(--texto-light);
+  background: var(--principal);
+  border-color: var(--principal);
+}
+
+.boton-filtro-actividad:focus-visible,
+.control-carrusel:focus-visible,
+.indicador-carrusel:focus-visible {
+  outline: 3px solid var(--secundario);
+  outline-offset: 3px;
+}
+
+/* ========================================
+   CUADRÍCULA Y TARJETAS
+======================================== */
+
+.grid-actividades {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+.tarjeta-actividad {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--fondo);
+  border: 1px solid var(--borde);
+  border-radius: var(--radius);
+  box-shadow: var(--sombra);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.tarjeta-actividad:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-hover);
+}
+
+/* ========================================
+   CARRUSEL MULTIMEDIA
+======================================== */
+
+.carrusel-actividad {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--principal);
+}
+
+.medio-actividad {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+video.medio-actividad {
+  background: #000;
+  object-fit: contain;
+}
+
+/* Flechas */
+
+.control-carrusel {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  color: #fff;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background 0.2s ease;
+}
+
+.control-carrusel:hover {
+  background: var(--accion);
+}
+
+.control-carrusel.anterior {
+  left: 12px;
+}
+
+.control-carrusel.siguiente {
+  right: 12px;
+}
+
+/* Indicadores inferiores */
+
+.indicadores-carrusel {
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 0 48px;
+}
+
+.indicador-carrusel {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.65);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    width 0.2s ease,
+    background 0.2s ease;
+}
+
+.indicador-carrusel.activo {
+  width: 22px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+/* Etiqueta de foto o video */
+
+.tipo-medio {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  color: #fff;
+  background: rgba(15, 23, 42, 0.78);
+  border-radius: 7px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+/* Actividad sin fotos o videos */
+
+.multimedia-vacia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  color: var(--texto-light);
+  text-align: center;
+}
+
+.multimedia-vacia > i {
+  font-size: 2.4rem;
+  opacity: 0.8;
+}
+
+.multimedia-vacia p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   INFORMACIÓN DE LA ACTIVIDAD
+======================================== */
+
+.contenido-actividad {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.metadatos-actividad {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin-bottom: 8px;
+}
+
+.categoria-actividad {
+  padding: 5px 9px;
+  color: var(--accion);
+  background: var(--fondo-alt);
+  border-radius: 6px;
+  font-size: 0.73rem;
+  font-weight: 800;
+}
+
+.fecha-actividad,
+.lugar-actividad {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--texto-secundario);
+  font-size: 0.81rem;
+  line-height: 1.5;
+}
+
+.fecha-actividad i,
+.lugar-actividad i {
+  color: var(--accion);
+}
+
+.contenido-actividad h3 {
+  margin: 0 0 9px;
+  color: var(--principal);
+  font-size: 1.15rem;
+  font-weight: 750;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.descripcion-actividad {
+  margin: 0;
+  color: var(--texto-secundario);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.lugar-actividad {
+  margin: 14px 0 0;
+}
+
+/* ========================================
+   ESTADO VACÍO
+======================================== */
+
+.estado-vacio-actividades {
+  margin: 20px 0;
+  padding: 24px;
+  color: var(--texto-secundario);
+  background: var(--fondo-alt);
+  border: 1px dashed var(--borde);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+  .actividades {
+    width: min(100% - 32px, 760px);
+    padding-top: 26px;
+  }
+
+  .grid-actividades {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ========================================
+   MÓVILES
+======================================== */
+
+@media (max-width: 560px) {
+  .actividades {
+    width: calc(100% - 28px);
+    padding-top: 22px;
+    padding-bottom: 36px;
+  }
+
+  .encabezado-actividades {
+    margin-bottom: 19px;
+  }
+
+  .subtitulo-actividades {
+    font-size: 0.91rem;
+  }
+
+  .filtros-actividades {
+    gap: 7px;
+    margin-bottom: 18px;
+  }
+
+  .boton-filtro-actividad {
+    padding: 7px 12px;
+    font-size: 0.81rem;
+  }
+
+  .contenido-actividad {
+    padding: 16px;
+  }
+
+  .contenido-actividad h3 {
+    font-size: 1.05rem;
+  }
+
+  .descripcion-actividad {
+    font-size: 0.9rem;
+  }
+
+  .control-carrusel {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+  }
+
+  .control-carrusel.anterior {
+    left: 8px;
+  }
+
+  .control-carrusel.siguiente {
+    right: 8px;
+  }
+}
+
+/* Respeta las preferencias de movimiento */
+
+@media (prefers-reduced-motion: reduce) {
+  .tarjeta-actividad,
+  .boton-filtro-actividad,
+  .control-carrusel,
+  .indicador-carrusel {
+    transition: none;
+  }
+
+  .tarjeta-actividad:hover {
+    transform: none;
+  }
+}

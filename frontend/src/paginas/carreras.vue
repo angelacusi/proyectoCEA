@@ -6,10 +6,10 @@
         <p>Conoce nuestras 8 opciones de formación técnica</p>
       </div>
       <div class="botones">
-        <a href="/programas.pdf" target="_blank" class="btn-c">
+        <a href="/carreras/programas.pdf" target="_blank" class="btn-c">
           Ver Planes y Programas</a
         >
-        <a href="/docentes.pdf" target="_blank" class="btn-c">
+        <a href="/carreras/docentes.pdf" target="_blank" class="btn-c">
           Ver Plantel Docente</a
         >
       </div>
@@ -64,7 +64,7 @@ const carreras = [
     alcance: "Técnico Básico, Auxiliar y Medio",
     duracion: "2 años",
     imagen: sistemas,
-    malla: "/mallaSistemas.png",
+    malla: "/carreras/mallaSistemas.png",
   },
 
   {
@@ -75,7 +75,7 @@ const carreras = [
     alcance: "Técnico Básico y Auxiliar",
     duracion: "1 año y medio",
     imagen: secretariado,
-    malla: "/mallaSecretariado.png",
+    malla: "/carreras/mallaSecretariado.png",
   },
   {
     id: 3,
@@ -85,7 +85,7 @@ const carreras = [
     alcance: "Técnico Básico y Auxiliar",
     duracion: "1 año ",
     imagen: ingles,
-    malla: "",
+    malla: "/carreras/mallaIngles.png",
   },
 
   {
@@ -96,7 +96,7 @@ const carreras = [
     alcance: "Técnico Básico y Técnico Auxiliar",
     duracion: "1 año ",
     imagen: electromecanica,
-    malla: "/mallaElectromecanica.png",
+    malla: "/carreras/mallaElectromecanica.png",
   },
 
   {
@@ -107,7 +107,7 @@ const carreras = [
     alcance: "Técnico Básico y Técnico Auxiliar",
     duracion: "1 año ",
     imagen: mecanica,
-    malla: "/mallaMecanica.png",
+    malla: "/carreras/mallaMecanica.png",
   },
 
   {
@@ -118,7 +118,7 @@ const carreras = [
     alcance: "Técnico Básico y Técnico Auxiliar",
     duracion: "1 año ",
     imagen: electronica,
-    malla: "/mallaElectronica.png",
+    malla: "/carreras/mallaElectronica.png",
   },
 
   {
@@ -129,7 +129,7 @@ const carreras = [
     alcance: "Técnico Básico, Auxiliar y Medio",
     duracion: "1 año y medio ",
     imagen: electricidad,
-    malla: "/mallaElectricidadIndu.png",
+    malla: "/carreras/mallaElectricidadIndu.png",
   },
 
   {
@@ -140,7 +140,7 @@ const carreras = [
     alcance: "Técnico Básico, Auxiliar y Medio",
     duracion: "2 año ",
     imagen: mecanicaIndustrial,
-    malla: "/mallaMecanicaIndu.png",
+    malla: "/carreras/mallaMecanicaIndu.png",
   },
 ];
 </script>
