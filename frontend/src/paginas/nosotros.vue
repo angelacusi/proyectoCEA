@@ -14,7 +14,7 @@
   </section>
 
   <!-- MISIÓN - VISIÓN - OBJETIVOS -->
-  <section class="contenedor-info">
+  <section id="mision" class="contenedor-info">
     <!-- Misión -->
     <div class="card-info">
       <div class="circulo"></div>
@@ -60,49 +60,94 @@
         destrezas que les permitan:
       </p>
 
-      <ul>
-        <li>
-          Planificar, organizar y ejecutar procesos técnicos y tecnológicos de
-          acuerdo con la especialidad elegida.
-        </li>
+      <p>
+        Planificar, organizar y ejecutar procesos técnicos y tecnológicos de
+        acuerdo con la especialidad elegida.
+      </p>
 
-        <li>
-          Aplicar conocimientos científicos y prácticos en la solución de
-          problemas del entorno laboral y social.
-        </li>
+      <p>
+        Aplicar conocimientos científicos y prácticos en la solución de
+        problemas del entorno laboral y social.
+      </p>
 
-        <li>
-          Desarrollar capacidades de liderazgo, innovación y emprendimiento.
-        </li>
+      <p>Desarrollar capacidades de liderazgo, innovación y emprendimiento.</p>
 
-        <li>
-          Integrarse al mercado laboral con responsabilidad, honestidad y
-          compromiso con la sociedad.
-        </li>
-      </ul>
+      <p>
+        Integrarse al mercado laboral con responsabilidad, honestidad y
+        compromiso con la sociedad.
+      </p>
     </div>
   </section>
 
-  <!-- REQUISITOS -->
-  <section class="requisitos">
-    <h2>Requisitos de inscripción</h2>
+  <!-- ESTADÍSTICAS DE ESTUDIANTES -->
+  <section id="estadisticas" class="estadisticas">
+    <div class="estadisticas-contenido">
+      <h2>Estudiantes inscritos por año</h2>
 
-    <p class="subtitulo">
-      Documentos necesarios para iniciar el proceso de inscripción.
-    </p>
+      <p class="subtitulo">
+        Conoce la cantidad de estudiantes inscritos en cada gestión y semestre
+        académico.
+      </p>
 
-    <div class="lista-requisitos">
-      <div class="req">Ser mayor de 15 años</div>
+      <div class="estadisticas-filtros">
+        <div class="filtro">
+          <label for="filtro-anio">Gestión académica</label>
 
-      <div class="req">3 fotocopias de Cédula de Identidad</div>
+          <select id="filtro-anio" v-model="anioSeleccionado">
+            <option v-for="anio in aniosDisponibles" :key="anio" :value="anio">
+              {{ anio }}
+            </option>
+          </select>
+        </div>
 
-      <div class="req">2 fotocopias del Certificado de Nacimiento</div>
+        <div class="filtro">
+          <label for="filtro-semestre">Semestre</label>
 
-      <div class="req">Fotografías tamaño 4x4</div>
+          <select id="filtro-semestre" v-model="semestreSeleccionado">
+            <option value="todos">Todos los semestres</option>
+            <option value="1">Primer semestre</option>
+            <option value="2">Segundo semestre</option>
+          </select>
+        </div>
+      </div>
 
-      <div class="req">Formulario RUDEAL correctamente llenado</div>
+      <div class="estadisticas-total">
+        <span>Total de inscritos en la selección</span>
+        <strong>{{ totalInscritos }}</strong>
+      </div>
 
-      <div class="req">Inscripción completamente gratuita</div>
+      <div class="grafico-estadisticas">
+        <div
+          v-for="dato in datosFiltrados"
+          :key="`${dato.anio}-${dato.semestre}`"
+          class="barra-item"
+        >
+          <div class="barra-datos">
+            <span>
+              {{ dato.semestre === 1 ? "Primer semestre" : "Segundo semestre" }}
+            </span>
+
+            <strong>{{ dato.cantidadInscritos }}</strong>
+          </div>
+
+          <div class="barra-fondo">
+            <div
+              class="barra-valor"
+              :style="{
+                width: `${(dato.cantidadInscritos / maxInscritos) * 100}%`,
+              }"
+            ></div>
+          </div>
+        </div>
+
+        <p v-if="datosFiltrados.length === 0" class="sin-estadisticas">
+          No hay estadísticas registradas para esta selección.
+        </p>
+      </div>
+
+      <p class="nota-estadisticas">
+        Los datos se actualizarán con los registros oficiales de la institución.
+      </p>
     </div>
   </section>
 
@@ -138,9 +183,33 @@
       </div>
     </div>
   </section>
+
+  <!-- REQUISITOS -->
+  <section id="requisitos" class="requisitos">
+    <h2>Requisitos de inscripción</h2>
+
+    <p class="subtitulo">
+      Documentos necesarios para iniciar el proceso de inscripción.
+    </p>
+
+    <div class="lista-requisitos">
+      <div class="req">Ser mayor de 15 años</div>
+
+      <div class="req">3 fotocopias de Cédula de Identidad</div>
+
+      <div class="req">2 fotocopias del Certificado de Nacimiento</div>
+
+      <div class="req">Fotografías tamaño 4x4</div>
+
+      <div class="req">Formulario RUDEAL correctamente llenado</div>
+
+      <div class="req">Inscripción completamente gratuita</div>
+    </div>
+  </section>
+
   <!-- PROCESO DE INSCRIPCIÓN -->
 
-  <section class="inscripcion-rude">
+  <section id="inscripcion" class="inscripcion-rude">
     <h2>Proceso de inscripción</h2>
 
     <p class="subtitulo">
@@ -188,7 +257,9 @@
 
     <modalRude />
   </section>
-  <section class="contacto">
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="contacto">
     <h2>C.E.A. Boliviano Alemán</h2>
 
     <div class="contacto-card">
@@ -237,4 +308,42 @@
 <script setup>
 import "../styles/nosotros.css";
 import modalRude from "../components/modalRude.vue";
+
+import { computed, ref } from "vue";
+
+// DATOS DE PRUEBA
+// En el futuro, estos datos vendrán del backend.
+const estadisticas = ref([
+  { anio: 2025, semestre: 1, cantidadInscritos: 110 },
+  { anio: 2025, semestre: 2, cantidadInscritos: 120 },
+  { anio: 2026, semestre: 1, cantidadInscritos: 125 },
+  { anio: 2026, semestre: 2, cantidadInscritos: 135 },
+]);
+
+const anioSeleccionado = ref(2026);
+const semestreSeleccionado = ref("todos");
+
+const aniosDisponibles = computed(() =>
+  [...new Set(estadisticas.value.map((d) => d.anio))].sort((a, b) => b - a),
+);
+
+const datosFiltrados = computed(() =>
+  estadisticas.value.filter(
+    (d) =>
+      d.anio === anioSeleccionado.value &&
+      (semestreSeleccionado.value === "todos" ||
+        d.semestre === Number(semestreSeleccionado.value)),
+  ),
+);
+
+const totalInscritos = computed(() =>
+  datosFiltrados.value.reduce(
+    (total, dato) => total + dato.cantidadInscritos,
+    0,
+  ),
+);
+
+const maxInscritos = computed(() =>
+  Math.max(1, ...datosFiltrados.value.map((d) => d.cantidadInscritos)),
+);
 </script>

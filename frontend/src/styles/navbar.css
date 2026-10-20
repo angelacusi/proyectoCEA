@@ -229,6 +229,39 @@
   box-shadow: none;
 }
 
+/* Evitar que los submenús se salgan de la pantalla */
+.dropdown-publicaciones {
+  position: relative;
+}
+
+.submenu-publicaciones {
+  box-sizing: border-box;
+  max-width: calc(100vw - 24px);
+}
+
+/* Ajuste para el menú de escritorio */
+@media (min-width: 992px) {
+  .submenu-publicaciones {
+    left: auto;
+    right: 0;
+  }
+}
+
+/* Ajuste para móviles */
+@media (max-width: 991.98px) {
+  .submenu-publicaciones {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .submenu-publicaciones .submenu-link {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
 /* =========================
    OFFCANVAS MÓVIL
 ========================= */

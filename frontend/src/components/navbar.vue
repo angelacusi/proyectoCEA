@@ -2,7 +2,11 @@
   <nav class="navbar navbar-expand-lg custom-navbar">
     <div class="container-fluid">
       <!-- LOGO -->
-      <router-link to="/" class="navbar-brand logo-container">
+      <router-link
+        to="/"
+        class="navbar-brand logo-container"
+        @click="cerrarMenu"
+      >
         <img src="/pngLogo.png" alt="Logo CEA" />
 
         <div class="logo-texto">
@@ -62,6 +66,8 @@
             <li
               class="nav-item dropdown-publicaciones"
               :class="{ desplegado: publicacionesAbiertas }"
+              @mouseenter="abrirConHover('publicaciones')"
+              @mouseleave="cerrarConHover('publicaciones')"
             >
               <button
                 type="button"
@@ -71,7 +77,7 @@
                 }"
                 :aria-expanded="publicacionesAbiertas"
                 aria-controls="submenuPublicaciones"
-                @click="publicacionesAbiertas = !publicacionesAbiertas"
+                @click="alternarPublicaciones"
               >
                 PUBLICACIONES
                 <span class="flecha-publicaciones">▾</span>
@@ -132,6 +138,23 @@
                     Revistas
                   </router-link>
                 </li>
+
+                <li>
+                  <router-link
+                    class="submenu-link"
+                    :class="{
+                      'categoria-activa': $route.query.tipo === 'proyectos',
+                    }"
+                    :to="{
+                      path: '/publicaciones',
+                      query: { tipo: 'proyectos' },
+                    }"
+                    @click="cerrarMenu"
+                  >
+                    <i class="bi bi-folder2-open"></i>
+                    Proyectos
+                  </router-link>
+                </li>
               </ul>
             </li>
 
@@ -147,10 +170,86 @@
             </li>
 
             <!-- NOSOTROS -->
-            <li class="nav-item">
-              <router-link class="nav-link" to="/nosotros" @click="cerrarMenu">
+            <li
+              class="nav-item dropdown-publicaciones"
+              :class="{ desplegado: nosotrosAbierto }"
+              @mouseenter="abrirConHover('nosotros')"
+              @mouseleave="cerrarConHover('nosotros')"
+            >
+              <button
+                type="button"
+                class="nav-link boton-publicaciones"
+                :class="{
+                  'categoria-activa': $route.path === '/nosotros',
+                }"
+                :aria-expanded="nosotrosAbierto"
+                aria-controls="submenuNosotros"
+                @click="alternarNosotros"
+              >
                 NOSOTROS
-              </router-link>
+                <span class="flecha-publicaciones">▾</span>
+              </button>
+
+              <ul
+                v-show="nosotrosAbierto"
+                id="submenuNosotros"
+                class="submenu-publicaciones submenu-nosotros"
+              >
+                <li>
+                  <a
+                    class="submenu-link"
+                    href="/nosotros#mision"
+                    @click.prevent="irASeccion('mision')"
+                  >
+                    <i class="bi bi-building"></i>
+                    Misión, visión y objetivos
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="submenu-link"
+                    href="/nosotros#estadisticas"
+                    @click.prevent="irASeccion('estadisticas')"
+                  >
+                    <i class="bi bi-bar-chart-line"></i>
+                    Estadísticas
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="submenu-link"
+                    href="/nosotros#requisitos"
+                    @click.prevent="irASeccion('requisitos')"
+                  >
+                    <i class="bi bi-card-checklist"></i>
+                    Requisitos
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="submenu-link"
+                    href="/nosotros#inscripcion"
+                    @click.prevent="irASeccion('inscripcion')"
+                  >
+                    <i class="bi bi-file-earmark-text"></i>
+                    Inscripción
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="submenu-link"
+                    href="/nosotros#contacto"
+                    @click.prevent="irASeccion('contacto')"
+                  >
+                    <i class="bi bi-geo-alt"></i>
+                    Contacto y ubicación
+                  </a>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -160,26 +259,97 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, nextTick } from "vue";
+import { useRouter } from "vue-router";
 import "../styles/navbar.css";
 
+const router = useRouter();
+
 const publicacionesAbiertas = ref(false);
+const nosotrosAbierto = ref(false);
 
-const cerrarMenu = () => {
-  publicacionesAbiertas.value = false;
+const esMovil = () => window.innerWidth < 992;
 
-  // Cierra el offcanvas únicamente si está abierto.
-  const elemento = document.getElementById("offcanvasNavbar");
+// En computadora, abrir y cerrar con el cursor.
+const abrirConHover = (menu) => {
+  if (esMovil()) return;
 
-  if (elemento && window.bootstrap?.Offcanvas) {
-    const instancia = window.bootstrap.Offcanvas.getInstance(elemento);
-
-    if (instancia) {
-      instancia.hide();
-    }
+  if (menu === "publicaciones") {
+    publicacionesAbiertas.value = true;
+  } else {
+    nosotrosAbierto.value = true;
   }
 };
 
+const cerrarConHover = (menu) => {
+  if (esMovil()) return;
+
+  if (menu === "publicaciones") {
+    publicacionesAbiertas.value = false;
+  } else {
+    nosotrosAbierto.value = false;
+  }
+};
+
+// En móvil, abrir los submenús con clic.
+const alternarPublicaciones = () => {
+  if (esMovil()) {
+    publicacionesAbiertas.value = !publicacionesAbiertas.value;
+  }
+};
+
+// En computadora, el clic en NOSOTROS abre la página.
+// En móvil, el clic abre o cierra el submenú.
+const alternarNosotros = () => {
+  if (esMovil()) {
+    nosotrosAbierto.value = !nosotrosAbierto.value;
+  } else {
+    router.push("/nosotros");
+  }
+};
+
+// Cerrar submenús y el menú hamburguesa al elegir un enlace.
+const cerrarMenu = () => {
+  publicacionesAbiertas.value = false;
+  nosotrosAbierto.value = false;
+
+  const offcanvasElement = document.getElementById("offcanvasNavbar");
+
+  if (offcanvasElement && window.bootstrap?.Offcanvas) {
+    const instancia = window.bootstrap.Offcanvas.getInstance(offcanvasElement);
+    instancia?.hide();
+  }
+};
+
+// Navegar a una sección de Nosotros, incluso si venimos de otra página.
+const irASeccion = async (id) => {
+  publicacionesAbiertas.value = false;
+  nosotrosAbierto.value = false;
+
+  await router.push({ path: "/nosotros", hash: `#${id}` });
+  await nextTick();
+
+  // Esperar a que Vue y el navegador actualicen la página.
+  requestAnimationFrame(() => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    // Cerrar la hamburguesa solo en móviles.
+    if (esMovil()) {
+      const offcanvasElement = document.getElementById("offcanvasNavbar");
+
+      if (offcanvasElement && window.bootstrap?.Offcanvas) {
+        const instancia =
+          window.bootstrap.Offcanvas.getInstance(offcanvasElement);
+        instancia?.hide();
+      }
+    }
+  });
+};
+
+// Efecto del navbar al desplazarse.
 const cambiarNavbar = () => {
   const navbar = document.querySelector(".custom-navbar");
 
