@@ -1,67 +1,166 @@
 #carouselCEA {
   width: 100%;
+  position: relative;
   overflow: hidden;
-  background: var(--cnegro);
+  background: #0b1120;
 }
 
-/* imagen */
-
+/* Imagen con altura responsiva */
 .carousel-img {
-  height: 83vh;
+  height: 80vh;
+  min-height: 520px;
   width: 100%;
   object-fit: cover;
-  filter: brightness(55%);
 }
 
-/* mensaje en la imagen */
+/* Capa oscura con degradé para garantizar lectura del texto sobre cualquier foto */
+.carousel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.4) 0%,
+    rgba(15, 23, 42, 0.75) 60%,
+    rgba(15, 23, 42, 0.95) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
 
+/* Centrado vertical y horizontal limpio */
 .carousel-caption {
-  bottom: 22%;
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5rem;
+  text-align: center;
 }
 
-/* titulo */
+.caption-container {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
 
+/* Título */
 .carousel-caption h1 {
-  font-size: 3.2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 20px;
-  color: white;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
 }
 
-/* texto */
-
+/* Párrafo */
 .carousel-caption p {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  color: rgba(241, 245, 249, 0.92);
+  margin: 0;
+  max-width: 650px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* responsive */
+/* Contenedor de botones centrado */
+.caption-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 0.5rem;
+}
 
+/* Botón principal */
+.btn-inscripcion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--secundario, #0284c7);
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 13px 28px;
+  border-radius: 50px;
+  box-shadow: 0 8px 24px rgba(194, 199, 129, 0.4);
+  transition: all 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-inscripcion:hover {
+  background: var(--accion);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(150, 180, 180, 0.626);
+}
+
+/* Botón secundario */
+.btn-secundario-carousel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 13px 24px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.25s ease;
+}
+
+.btn-secundario-carousel:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateY(-2px);
+}
+
+/* En celulares (ancho táctil completo y ordenado) */
 @media (max-width: 768px) {
   .carousel-img {
-    height: 60vh;
+    height: 70vh;
+    min-height: 480px;
   }
 
-  .carousel-caption {
-    bottom: 15%;
-    left: 6%;
-    right: 6%;
-    text-align: center;
-    max-width: 100%;
+  .caption-container {
+    gap: 0.8rem;
+  }
+
+  .badge-admisiones {
+    font-size: 0.75rem;
+    padding: 4px 12px;
   }
 
   .carousel-caption h1 {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
 
   .carousel-caption p {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+  }
+
+  .caption-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 290px;
+    gap: 8px;
+  }
+
+  .btn-inscripcion,
+  .btn-secundario-carousel {
+    width: 100%;
+    padding: 11px 20px;
+    font-size: 0.92rem;
   }
 }

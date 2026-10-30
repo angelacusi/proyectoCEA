@@ -1,0 +1,223 @@
+.pagina-usuarios {
+  width: min(1200px, calc(100% - 40px));
+  margin: 80px auto 60px;
+}
+
+.encabezado-usuarios {
+  margin-bottom: 35px;
+}
+
+.encabezado-usuarios h1 {
+  color: var(--principal);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.encabezado-usuarios p {
+  color: #64748b;
+}
+
+.contenido-usuarios {
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07);
+}
+
+.barra-usuarios {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.barra-usuarios h2 {
+  color: var(--principal);
+  font-size: 1.3rem;
+}
+
+.btn-crear-usuario {
+  border: none;
+  border-radius: 7px;
+  padding: 10px 16px;
+  background: var(--principal);
+  color: white;
+  cursor: pointer;
+}
+
+.tabla-usuarios {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--texto);
+}
+
+.tabla-usuarios-contenedor {
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.tabla-usuarios th,
+.tabla-usuarios td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.tabla-usuarios th {
+  background: #f8fafc;
+  color: var(--principal);
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.tabla-usuarios tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.etiqueta-rol,
+.etiqueta-estado {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.etiqueta-rol {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.estado-activo {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.estado-inactivo {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.acciones-usuario {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.btn-accion-usuario {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.btn-editar-usuario {
+  background: #fef3c7;
+  color: #854d0e;
+}
+
+.btn-eliminar-usuario {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.cuenta-propia {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.estado-usuarios,
+.mensaje-usuarios {
+  padding: 14px 16px;
+  border-radius: 8px;
+}
+
+.estado-usuarios {
+  margin: 0;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+}
+
+.mensaje-usuarios {
+  margin: 0 0 16px;
+}
+
+.error-usuarios {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.exito-usuarios {
+  background: #f0fdf4;
+  color: #166534;
+}
+
+@media (max-width: 700px) {
+  .contenido-usuarios {
+    padding: 16px;
+  }
+
+  .tabla-usuarios-contenedor {
+    border: 0;
+  }
+
+  .tabla-usuarios thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  .tabla-usuarios,
+  .tabla-usuarios tbody,
+  .tabla-usuarios tr,
+  .tabla-usuarios td {
+    display: block;
+    width: 100%;
+  }
+
+  .tabla-usuarios tr {
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+  }
+
+  .tabla-usuarios td {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 0;
+    text-align: right;
+  }
+
+  .tabla-usuarios td::before {
+    content: attr(data-label);
+    color: #64748b;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .tabla-usuarios td.acciones-usuario {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .tabla-usuarios td.acciones-usuario::before {
+    margin-right: auto;
+  }
+}

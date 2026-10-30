@@ -16,66 +16,73 @@
   <!-- MISIÓN - VISIÓN - OBJETIVOS -->
   <section id="mision" class="contenedor-info">
     <!-- Misión -->
-    <div class="card-info">
-      <div class="circulo"></div>
+    <div class="info-izq">
+      <div class="card-info">
+        <div class="circulo"></div>
+        <div class="div-icono-tituto">
+          <div class="icono">🎯</div>
+          <h2>Misión</h2>
+        </div>
 
-      <div class="icono">🎯</div>
+        <p>
+          Formar profesionales íntegros con valores morales y éticos, con
+          formación técnica, tecnológica, científica y productiva. Desarrollamos
+          personas creativas, innovadoras y con actitud emprendedora, capaces de
+          responder a las necesidades del mercado laboral y de la sociedad.
+        </p>
+      </div>
 
-      <h2>Misión</h2>
+      <!-- Visión -->
+      <div class="card-info">
+        <div class="circulo"></div>
 
-      <p>
-        Formar profesionales íntegros con valores morales y éticos, con
-        formación técnica, tecnológica, científica y productiva. Desarrollamos
-        personas creativas, innovadoras y con actitud emprendedora, capaces de
-        responder a las necesidades del mercado laboral y de la sociedad.
-      </p>
+        <div class="div-icono-tituto">
+          <div class="icono">🌟</div>
+          <h2>Visión</h2>
+        </div>
+        <p>
+          Ser un Centro de Educación Alternativa de excelencia académica,
+          reconocido por formar mujeres y hombres competitivos en el ámbito
+          laboral y empresarial, fundamentados en principios, valores éticos y
+          comunitarios orientados al vivir bien.
+        </p>
+      </div>
     </div>
-
-    <!-- Visión -->
-    <div class="card-info">
-      <div class="circulo"></div>
-
-      <div class="icono">👁️</div>
-
-      <h2>Visión</h2>
-
-      <p>
-        Ser un Centro de Educación Alternativa de excelencia académica,
-        reconocido por formar mujeres y hombres competitivos en el ámbito
-        laboral y empresarial, fundamentados en principios, valores éticos y
-        comunitarios orientados al vivir bien.
-      </p>
-    </div>
-
     <!-- Objetivos -->
-    <div class="card-info card-objetivos">
+    <div class="card-info">
       <div class="circulo"></div>
 
-      <div class="icono">🚀</div>
-
-      <h2>Objetivos</h2>
+      <div class="div-icono-tituto">
+        <div class="icono">🚀</div>
+        <h2>Objetivos</h2>
+      </div>
 
       <p>
         Capacitar a las y los participantes con conocimientos, habilidades y
         destrezas que les permitan:
       </p>
+      <br />
 
-      <p>
-        Planificar, organizar y ejecutar procesos técnicos y tecnológicos de
-        acuerdo con la especialidad elegida.
-      </p>
+      <ul>
+        <li>
+          Planificar, organizar y ejecutar procesos técnicos y tecnológicos de
+          acuerdo con la especialidad elegida.
+        </li>
 
-      <p>
-        Aplicar conocimientos científicos y prácticos en la solución de
-        problemas del entorno laboral y social.
-      </p>
+        <li>
+          Aplicar conocimientos científicos y prácticos en la solución de
+          problemas del entorno laboral y social.
+        </li>
 
-      <p>Desarrollar capacidades de liderazgo, innovación y emprendimiento.</p>
+        <li>
+          Desarrollar capacidades de liderazgo, innovación y emprendimiento.
+        </li>
 
-      <p>
-        Integrarse al mercado laboral con responsabilidad, honestidad y
-        compromiso con la sociedad.
-      </p>
+        <li>
+          Integrarse al mercado laboral con responsabilidad, honestidad y
+          compromiso con la sociedad.
+        </li>
+      </ul>
     </div>
   </section>
 

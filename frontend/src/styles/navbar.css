@@ -1,66 +1,80 @@
+/* =========================
+   NAVBAR PRINCIPAL
+========================= */
+
 .custom-navbar {
-  background: var(--navbar-bg);
-  box-shadow: var(--sombra-hover);
-  padding: 0;
-  transition:
-    background 0.3s ease,
-    box-shadow 0.3s ease;
   position: sticky !important;
   top: 0;
   z-index: 1050;
+  padding: 0;
+  background: var(--navbar-bg);
+  box-shadow: var(--sombra-hover);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-/* 
-  LOGO Y TEXTO INSTITUCIONAL
- */
-
-.logo-container {
+.custom-navbar .container-fluid {
   display: flex;
   align-items: center;
+  width: 100%;
+  min-width: 0;
+  padding-inline: 12px;
+  gap: 8px;
+}
+
+.custom-navbar .navbar-brand {
+  padding-block: 0 !important;
+  margin-right: 0;
+}
+
+/* =========================
+   LOGO INSTITUCIONAL
+========================= */
+
+.custom-navbar .logo-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
   gap: 15px;
   text-decoration: none;
 }
 
-.logo-container img {
+.custom-navbar .logo-container img {
   width: 85px;
   height: 85px;
   object-fit: contain;
   transition: all 0.3s ease;
 }
 
-.logo-container:hover img {
+.custom-navbar .logo-container:hover img {
   transform: scale(1.03);
 }
 
-.logo-texto {
+.custom-navbar .logo-texto {
   max-height: 100px;
-  opacity: 1;
   overflow: hidden;
+  opacity: 1;
   transform: translateY(0);
   transition: all 0.3s ease;
 }
 
-.logo-texto h1 {
-  font-size: 1.4rem;
+.custom-navbar .logo-texto h1 {
   margin: 0;
   color: var(--principal);
+  font-size: 1.4rem;
   font-weight: 700;
+  white-space: nowrap;
 }
 
-.logo-texto p {
+.custom-navbar .logo-texto p {
   margin: 0;
-  font-size: 0.8rem;
   color: var(--texto-secundario);
+  font-size: 0.8rem;
+  white-space: nowrap;
 }
 
-.navbar-brand {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-/* =========================
-   NAVBAR AL HACER SCROLL
-========================= */
+/* Navbar compacto al desplazarse */
 
 .custom-navbar.scrolled .logo-container img {
   width: 0;
@@ -72,8 +86,8 @@
 .custom-navbar.scrolled .logo-texto {
   max-height: 0;
   opacity: 0;
-  transform: translateY(-10px);
   overflow: hidden;
+  transform: translateY(-10px);
 }
 
 .custom-navbar.scrolled .logo-container {
@@ -81,14 +95,16 @@
 }
 
 /* =========================
-   ENLACES DEL NAVBAR
+   ENLACES PRINCIPALES
 ========================= */
 
-.navbar-nav {
+.custom-navbar .navbar-nav {
+  display: flex;
+  align-items: center;
   gap: 20px;
 }
 
-.navbar-nav .nav-link {
+.custom-navbar .navbar-nav .nav-link {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -98,83 +114,115 @@
   font-size: 0.8rem;
   font-weight: 500;
   text-decoration: none;
+  white-space: nowrap;
   transition: color 0.25s ease;
 }
 
-/* Línea inferior */
-
-.navbar-nav .nav-link::after {
-  content: "";
+.custom-navbar .navbar-nav .nav-link::after {
   position: absolute;
-  left: 50%;
   bottom: 3px;
+  left: 50%;
   width: 0;
   height: 2px;
+  content: "";
   background: var(--accion);
   transform: translateX(-50%);
   transition: width 0.25s ease;
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus-visible {
+.custom-navbar .navbar-nav .nav-link:hover,
+.custom-navbar .navbar-nav .nav-link:focus-visible,
+.custom-navbar .navbar-nav .nav-link.router-link-exact-active,
+.custom-navbar .navbar-nav .nav-link.categoria-activa {
   color: var(--accion);
 }
 
-.navbar-nav .nav-link:hover::after,
-.navbar-nav .nav-link:focus-visible::after,
-.navbar-nav .nav-link.router-link-exact-active::after,
-.navbar-nav .nav-link.categoria-activa::after {
+.custom-navbar .navbar-nav .nav-link:hover::after,
+.custom-navbar .navbar-nav .nav-link:focus-visible::after,
+.custom-navbar .navbar-nav .nav-link.router-link-exact-active::after,
+.custom-navbar .navbar-nav .nav-link.categoria-activa::after {
   width: 100%;
 }
 
-/* Enlaces de la página actual */
-
-.navbar-nav .nav-link.router-link-exact-active,
-.navbar-nav .nav-link.categoria-activa {
-  color: var(--accion);
+.custom-navbar .navbar-nav .nav-link.router-link-exact-active,
+.custom-navbar .navbar-nav .nav-link.categoria-activa {
   font-weight: 600;
 }
 
 /* =========================
-   BOTÓN PUBLICACIONES
+   REDES SOCIALES
 ========================= */
 
-.dropdown-publicaciones {
+.custom-navbar .redes-sociales {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: clamp(5px, 0.7vw, 12px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.custom-navbar .redes-sociales .nav-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 7px !important;
+  color: var(--accion);
+  font-size: 1.25rem;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.custom-navbar .redes-sociales .nav-icon:hover {
+  color: var(--principal);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   SUBMENÚS
+========================= */
+
+.custom-navbar .dropdown-publicaciones {
   position: relative;
 }
 
-.boton-publicaciones {
+.custom-navbar .boton-publicaciones {
+  gap: 7px;
   border: none;
   background: transparent;
   font-family: inherit;
   cursor: pointer;
-  gap: 7px;
 }
 
-.flecha-publicaciones {
+.custom-navbar .flecha-publicaciones {
   display: inline-block;
   font-size: 0.7rem;
   transition: transform 0.25s ease;
 }
 
-.dropdown-publicaciones.desplegado .flecha-publicaciones {
+.custom-navbar .dropdown-publicaciones.desplegado .flecha-publicaciones {
   transform: rotate(180deg);
 }
 
-/* =========================
-   SUBMENÚ PUBLICACIONES
-========================= */
-
-.submenu-publicaciones {
+.custom-navbar .submenu-publicaciones {
   position: absolute;
   top: calc(100% + 5px);
-  left: -12px;
+  right: 0;
   z-index: 1100;
-
+  box-sizing: border-box;
   min-width: 205px;
+  max-width: calc(100vw - 24px);
   margin: 0;
   padding: 8px;
-
   list-style: none;
   background: var(--navbar-bg);
   border: 1px solid var(--borde);
@@ -182,166 +230,596 @@
   box-shadow: var(--sombra);
 }
 
-/* Cada opción se ve como un enlace del navbar,
-   pero con un espacio cómodo para hacer clic. */
-
-.submenu-publicaciones .submenu-link {
+.custom-navbar .submenu-publicaciones .submenu-link {
   display: flex;
   align-items: center;
   gap: 10px;
-
   width: 100%;
   padding: 11px 12px !important;
   border-radius: 8px;
-
   color: var(--principal);
   font-size: 0.85rem;
   font-weight: 500;
   text-decoration: none;
-
+  overflow-wrap: anywhere;
   transition:
     background 0.2s ease,
     color 0.2s ease;
 }
 
-/* El submenú no necesita la línea inferior del navbar */
-
-.submenu-publicaciones .submenu-link::after {
+.custom-navbar .submenu-publicaciones .submenu-link::after {
   display: none;
 }
 
-.submenu-publicaciones .submenu-link:hover,
-.submenu-publicaciones .submenu-link:focus-visible,
-.submenu-publicaciones .submenu-link.categoria-activa {
+.custom-navbar .submenu-publicaciones .submenu-link:hover,
+.custom-navbar .submenu-publicaciones .submenu-link:focus-visible,
+.custom-navbar .submenu-publicaciones .submenu-link.categoria-activa {
   background: var(--fondo-alt);
   color: var(--accion);
 }
 
 /* =========================
-   BOTÓN MÓVIL
+   ACCESO DE USUARIO
 ========================= */
 
-.navbar-toggler {
+.custom-navbar .boton-usuario {
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin: 0;
+  padding: 2px 4px;
+  color: var(--principal);
+  text-decoration: none;
+  font-size: 10px;
+  line-height: 1.1;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.custom-navbar .boton-usuario i {
+  font-size: 21px;
+  line-height: 1;
+}
+
+.custom-navbar .boton-usuario:hover,
+.custom-navbar .boton-usuario:focus-visible {
+  color: var(--accion);
+}
+
+.custom-navbar .boton-usuario-externo {
+  flex: 0 0 auto;
+  margin-left: 12px;
+  margin-right: 0;
+  white-space: nowrap;
+}
+/* =========================
+   BOTÓN HAMBURGUESA
+========================= */
+
+.custom-navbar .navbar-toggler {
+  flex: 0 0 auto;
+  padding: 4px 6px;
   border: none;
 }
 
-.navbar-toggler:focus {
+.custom-navbar .navbar-toggler:focus {
   box-shadow: none;
 }
 
-/* Evitar que los submenús se salgan de la pantalla */
-.dropdown-publicaciones {
-  position: relative;
-}
+/* Panel lateral */
 
-.submenu-publicaciones {
-  box-sizing: border-box;
-  max-width: calc(100vw - 24px);
-}
-
-/* Ajuste para el menú de escritorio */
-@media (min-width: 992px) {
-  .submenu-publicaciones {
-    left: auto;
-    right: 0;
-  }
-}
-
-/* Ajuste para móviles */
-@media (max-width: 991.98px) {
-  .submenu-publicaciones {
-    position: static;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-
-  .submenu-publicaciones .submenu-link {
-    white-space: normal;
-    overflow-wrap: anywhere;
-  }
-}
-
-/* =========================
-   OFFCANVAS MÓVIL
-========================= */
-
-.offcanvas {
-  background: var(--fondo) !important;
+.custom-navbar .offcanvas {
+  top: 0;
   width: 320px !important;
   max-width: 90vw;
   height: 100vh !important;
-  top: 0;
+  background: var(--fondo) !important;
+}
+
+/* Menú de cuenta */
+.cuenta-menu {
+  position: relative;
+  list-style: none;
+  align-self: center;
+}
+
+.boton-usuario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cuenta-resumen {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.25;
+}
+
+.cuenta-resumen strong {
+  font-size: 0.82rem;
+}
+
+.cuenta-resumen small {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.cuenta-flecha {
+  font-size: 0.7rem;
+}
+
+.submenu-cuenta {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 1100;
+  width: 245px;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  background: #fff;
+  color: #1e293b;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+}
+
+.cuenta-encabezado {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  overflow-wrap: anywhere;
+}
+
+.cuenta-encabezado span {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.cuenta-encabezado small {
+  color: #64748b;
+}
+
+.cuenta-enlace {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #1e293b;
+  text-align: left;
+  text-decoration: none;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.cuenta-enlace:hover {
+  background: #f1f5f9;
+}
+
+.cuenta-separador {
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.cuenta-salir {
+  color: #dc2626;
+}
+
+.cuenta-salir:disabled {
+  opacity: 0.6;
+  cursor: wait;
 }
 
 /* =========================
-   RESPONSIVE
+   ESCRITORIO COMPLETO
+   1200 PX EN ADELANTE
 ========================= */
 
-@media (max-width: 991.98px) {
-  .navbar-nav {
-    gap: 5px;
+@media (min-width: 1200px) {
+  .custom-navbar .container-fluid {
+    flex-wrap: nowrap;
+    gap: 8px;
   }
 
-  .navbar-nav .nav-link {
+  .custom-navbar .offcanvas {
+    position: static !important;
     display: flex;
-    width: 100%;
-    justify-content: flex-start;
-    padding: 12px 10px !important;
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto !important;
+    max-width: none;
+    height: auto !important;
+    visibility: visible !important;
+    background: transparent !important;
+    border: 0;
+    box-shadow: none;
+    transform: none !important;
   }
 
-  .navbar-nav .nav-link::after {
+  .custom-navbar .offcanvas-header {
     display: none;
   }
 
-  .boton-publicaciones {
+  .custom-navbar .offcanvas-body {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    min-width: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .custom-navbar .navbar-nav {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    min-width: 0;
+    gap: clamp(6px, 0.8vw, 14px);
+    padding-right: 0 !important;
+  }
+
+  .custom-navbar .redes-sociales {
+    gap: clamp(2px, 0.35vw, 7px);
+  }
+
+  .custom-navbar .redes-sociales .nav-icon {
+    padding: 5px !important;
+  }
+
+  .custom-navbar .navbar-toggler {
+    display: none;
+  }
+}
+
+/* =========================
+   ESCRITORIO COMPACTO
+   992 PX A 1199 PX
+========================= */
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .custom-navbar .container-fluid {
+    flex-wrap: nowrap;
+    gap: 5px;
+    padding-inline: 10px;
+  }
+
+  .custom-navbar .logo-container {
+    flex-shrink: 0;
+    gap: 8px;
+    margin-right: 0;
+  }
+
+  .custom-navbar .logo-container img {
+    width: 68px;
+    height: 68px;
+  }
+
+  .custom-navbar .logo-texto h1 {
+    font-size: 1.08rem;
+    white-space: nowrap;
+  }
+
+  .custom-navbar .offcanvas {
+    position: static !important;
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto !important;
+    max-width: none;
+    height: auto !important;
+    visibility: visible !important;
+    background: transparent !important;
+    border: 0;
+    box-shadow: none;
+    transform: none !important;
+  }
+
+  .custom-navbar .offcanvas-header {
+    display: none;
+  }
+
+  .custom-navbar .offcanvas-body {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    min-width: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .custom-navbar .navbar-nav {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    min-width: 0;
+    gap: clamp(5px, 0.55vw, 8px);
+    padding-right: 0 !important;
+  }
+
+  .custom-navbar .navbar-nav .nav-link {
+    padding: 10px 0 !important;
+    font-size: 0.72rem;
+  }
+
+  .custom-navbar .boton-publicaciones {
+    gap: 4px;
+  }
+
+  .custom-navbar .redes-sociales {
+    flex: 0 0 auto;
+    gap: 1px;
+  }
+
+  .custom-navbar .redes-sociales .nav-icon {
+    padding: 3px !important;
+    font-size: 1.05rem;
+  }
+
+  .custom-navbar .boton-usuario {
+    padding: 2px;
+    font-size: 9px;
+  }
+
+  .custom-navbar .boton-usuario i {
+    font-size: 19px;
+  }
+
+  .custom-navbar .navbar-toggler {
+    display: none;
+  }
+
+  .custom-navbar .boton-usuario-externo {
+    flex: 0 0 auto;
+    margin-left: 10px;
+  }
+}
+
+/* Ocultar SOLO el subtítulo entre 992 y 1150 px.
+   No cambia la alineación ni el diseño del menú. */
+
+@media (min-width: 992px) and (max-width: 1150px) {
+  .custom-navbar .logo-texto p {
+    display: none;
+  }
+}
+
+/* =========================
+   TABLETAS Y MÓVILES
+   MENOS DE 992 PX
+========================= */
+
+@media (max-width: 991.98px) {
+  .custom-navbar .container-fluid {
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+
+  .custom-navbar .navbar-brand {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin-right: 0;
+  }
+
+  .custom-navbar .logo-container {
+    gap: 8px;
+  }
+
+  .custom-navbar .logo-container img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .custom-navbar .logo-texto {
+    min-width: 0;
+  }
+
+  .custom-navbar .logo-texto h1 {
+    font-size: clamp(0.85rem, 1.6vw, 1.15rem);
+    white-space: nowrap;
+  }
+
+  .custom-navbar .logo-texto p {
+    display: none;
+  }
+
+  .custom-navbar .boton-usuario-externo {
+    order: 2;
+    margin-left: auto;
+    padding: 3px;
+  }
+
+  .custom-navbar .navbar-toggler {
+    order: 3;
+    display: block;
+  }
+
+  .custom-navbar .offcanvas {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 320px !important;
+    max-width: 90vw;
+    height: 100vh !important;
+    background: var(--fondo) !important;
+  }
+
+  .custom-navbar .offcanvas-header {
+    display: flex;
+  }
+
+  .custom-navbar .offcanvas-body {
+    display: block;
+    padding: 1rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .custom-navbar .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    width: 100%;
+    padding-right: 0 !important;
+  }
+
+  .custom-navbar .navbar-nav .nav-item {
+    width: 100%;
+  }
+
+  .custom-navbar .navbar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 12px 10px !important;
+    font-size: 0.85rem;
+  }
+
+  .custom-navbar .navbar-nav .nav-link::after {
+    display: none;
+  }
+
+  .custom-navbar .boton-publicaciones {
     justify-content: space-between;
   }
 
-  .submenu-publicaciones {
+  .custom-navbar .redes-sociales {
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 10px 8px;
+    margin-bottom: 8px;
+  }
+
+  .custom-navbar .redes-sociales .nav-icon {
+    padding: 7px !important;
+    font-size: 1.35rem;
+  }
+
+  .custom-navbar .submenu-publicaciones {
     position: static;
+    width: 100%;
     min-width: 0;
+    max-width: 100%;
     margin: 0 0 8px 12px;
     padding: 4px;
-
+    background: transparent;
     border: none;
     border-left: 2px solid var(--secundario);
     border-radius: 0;
     box-shadow: none;
-    background: transparent;
   }
 
-  .submenu-publicaciones .submenu-link {
-    padding: 11px 12px !important;
+  .custom-navbar .submenu-publicaciones .submenu-link {
+    padding: 10px 12px !important;
+    font-size: 0.85rem;
+  }
+
+  .cuenta-menu {
+    align-self: stretch;
+    margin: 8px 0;
+  }
+
+  .submenu-cuenta {
+    position: static;
+    width: 100%;
+    margin-top: 8px;
+    box-shadow: none;
   }
 }
+
+/* =========================
+   PANTALLAS PEQUEÑAS
+========================= */
 
 @media (max-width: 768px) {
-  .logo-container {
-    gap: 8px;
+  .custom-navbar .container-fluid {
+    padding-inline: 8px;
+    gap: 4px;
   }
 
-  .logo-container img {
-    width: 55px;
-    height: 55px;
+  .custom-navbar .logo-container {
+    gap: 6px;
   }
 
-  .logo-texto h1 {
-    font-size: 1rem;
+  .custom-navbar .logo-container img {
+    width: 48px;
+    height: 48px;
   }
 
-  .logo-texto p {
-    display: none;
+  .custom-navbar .logo-texto h1 {
+    font-size: clamp(0.72rem, 2.5vw, 0.95rem);
+  }
+
+  .custom-navbar .boton-usuario {
+    gap: 2px;
+    padding: 2px;
+    font-size: 9px;
+  }
+
+  .custom-navbar .boton-usuario i {
+    font-size: 19px;
+  }
+
+  .custom-navbar .navbar-toggler {
+    padding: 4px;
   }
 }
+
+/* Teléfonos muy estrechos */
+
+@media (max-width: 380px) {
+  .custom-navbar .logo-container img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .custom-navbar .logo-texto h1 {
+    font-size: 0.7rem;
+  }
+
+  .custom-navbar .boton-usuario {
+    font-size: 8px;
+  }
+
+  .custom-navbar .boton-usuario i {
+    font-size: 18px;
+  }
+}
+
+/* =========================
+   ACCESIBILIDAD
+========================= */
 
 @media (prefers-reduced-motion: reduce) {
   .custom-navbar,
-  .logo-container img,
-  .logo-texto,
-  .navbar-nav .nav-link,
-  .navbar-nav .nav-link::after,
-  .flecha-publicaciones {
+  .custom-navbar .logo-container img,
+  .custom-navbar .logo-texto,
+  .custom-navbar .navbar-nav .nav-link,
+  .custom-navbar .navbar-nav .nav-link::after,
+  .custom-navbar .flecha-publicaciones,
+  .custom-navbar .redes-sociales .nav-icon {
     transition: none;
   }
 }

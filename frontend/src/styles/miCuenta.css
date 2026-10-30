@@ -1,0 +1,262 @@
+.pagina-mi-cuenta {
+  width: min(940px, calc(100% - 36px));
+  margin: 70px auto 64px;
+}
+
+.encabezado-cuenta {
+  margin-bottom: 24px;
+  padding: clamp(24px, 5vw, 42px);
+  overflow: hidden;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 90% 15%, rgba(234, 179, 8, 0.3), transparent 30%),
+    var(--gradiente-principal);
+  box-shadow: var(--sombra);
+  color: var(--texto-light);
+}
+
+.encabezado-cuenta h1 {
+  margin: 0;
+  color: var(--texto-light);
+  font-size: clamp(1.8rem, 4vw, 2.45rem);
+  font-weight: 800;
+}
+
+.encabezado-cuenta p {
+  max-width: 580px;
+  margin: 9px 0 0;
+  color: rgba(248, 250, 252, 0.82);
+  line-height: 1.65;
+}
+
+.tarjeta-mi-cuenta {
+  position: relative;
+  padding: clamp(22px, 5vw, 38px);
+  overflow: hidden;
+  border: 1px solid var(--borde);
+  border-radius: 20px;
+  background: var(--card);
+  box-shadow: var(--sombra);
+}
+
+.icono-cuenta {
+  position: absolute;
+  top: 26px;
+  right: 30px;
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border: 1px solid rgba(234, 179, 8, 0.5);
+  border-radius: 17px;
+  background: var(--fondo-alt);
+  color: var(--principal);
+  font-size: 30px;
+}
+
+.encabezado-tarjeta-cuenta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 2px 75px 22px 0;
+  border-bottom: 1px solid var(--borde);
+}
+
+.etiqueta-cuenta {
+  color: var(--accion);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.encabezado-tarjeta-cuenta h2 {
+  margin: 6px 0;
+  color: var(--principal);
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+
+.encabezado-tarjeta-cuenta p {
+  margin: 0;
+  color: var(--texto-secundario);
+  line-height: 1.55;
+}
+
+.rol-cuenta {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border: 1px solid rgba(234, 179, 8, 0.7);
+  border-radius: 24px;
+  background: rgba(234, 179, 8, 0.17);
+  color: var(--principal);
+  font-size: 0.83rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.formulario-cuenta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 22px;
+  padding-top: 24px;
+}
+
+.campo-cuenta {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.campo-cuenta label {
+  color: var(--principal);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.campo-cuenta input {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 13px;
+  border: 1px solid var(--borde);
+  border-radius: 9px;
+  outline: none;
+  background: white;
+  color: var(--texto);
+  font: inherit;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.campo-cuenta input:focus {
+  border-color: var(--principal-light);
+  box-shadow: 0 0 0 3px rgba(30, 41, 59, 0.12);
+}
+
+.campo-cuenta input:disabled {
+  background: var(--fondo-alt);
+}
+
+.seccion-password {
+  grid-column: 1 / -1;
+  margin: 4px 0 18px;
+  padding: 20px 0 0;
+  border-top: 1px solid var(--borde);
+}
+
+.seccion-password h3 {
+  margin: 0 0 5px;
+  color: var(--principal);
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.seccion-password p {
+  margin: 0;
+  color: var(--texto-secundario);
+  font-size: 0.9rem;
+}
+
+.campo-password {
+  grid-column: 1 / -1;
+}
+
+.btn-guardar-cuenta {
+  display: inline-flex;
+  grid-column: 1 / -1;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  margin-top: 4px;
+  padding: 11px 20px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--gradiente-accion);
+  box-shadow: 0 5px 13px rgba(201, 22, 22, 0.2);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn-guardar-cuenta:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.btn-guardar-cuenta:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.mensaje-cuenta {
+  grid-column: 1 / -1;
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  line-height: 1.55;
+}
+
+.error-cuenta {
+  border-left: 4px solid #dc2626;
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.exito-cuenta {
+  border-left: 4px solid #16a34a;
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.nota-cuenta {
+  margin: 20px 0 0;
+  color: var(--texto-secundario);
+  font-size: 0.87rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 640px) {
+  .pagina-mi-cuenta {
+    margin-top: 35px;
+  }
+
+  .icono-cuenta {
+    top: 18px;
+    right: 18px;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    font-size: 24px;
+  }
+
+  .encabezado-tarjeta-cuenta {
+    flex-direction: column;
+    padding-right: 50px;
+  }
+
+  .encabezado-tarjeta-cuenta h2 {
+    font-size: 1.25rem;
+  }
+
+  .formulario-cuenta {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .campo-cuenta,
+  .seccion-password,
+  .btn-guardar-cuenta,
+  .mensaje-cuenta {
+    grid-column: 1;
+  }
+
+  .btn-guardar-cuenta {
+    width: 100%;
+  }
+}

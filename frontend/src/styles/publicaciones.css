@@ -1,5 +1,7 @@
+@import "./variables.css";
+
 /* ========================================
-   PUBLICACIONES
+   CONTENEDOR Y ENCABEZADO
 ======================================== */
 
 .publicaciones {
@@ -9,10 +11,8 @@
   color: var(--texto);
 }
 
-/* Encabezado compacto y alineado a la izquierda */
-
 .encabezado-publicaciones {
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   text-align: left;
 }
 
@@ -30,6 +30,7 @@
   font-size: clamp(1.65rem, 3vw, 2.2rem);
   font-weight: 800;
   line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 
 .subtitulo-publicaciones {
@@ -37,11 +38,67 @@
   margin: 8px 0 0;
   color: var(--texto-secundario);
   font-size: 0.98rem;
-  line-height: 1.6;
+  line-height: 1.7;
+}
+
+.encabezado-publicaciones-fila {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.boton-crear-publicacion,
+.accion-publicacion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 9px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.boton-crear-publicacion {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 10px 16px;
+  background: var(--gradiente-accion);
+  box-shadow: var(--sombra);
+  color: var(--texto-light);
+}
+
+.boton-crear-publicacion:hover,
+.accion-publicacion:hover {
+  transform: translateY(-2px);
+}
+
+.estado-error-publicaciones,
+.estado-exito-publicaciones {
+  margin: 0 0 18px;
+  padding: 12px 15px;
+  border-radius: 9px;
+  line-height: 1.5;
+}
+
+.estado-error-publicaciones {
+  border-left: 4px solid #dc2626;
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.estado-exito-publicaciones {
+  border-left: 4px solid #16a34a;
+  background: #f0fdf4;
+  color: #166534;
 }
 
 /* ========================================
-   CUADRÍCULA REUTILIZABLE
+   CUADRÍCULAS
 ======================================== */
 
 .grid-publicaciones {
@@ -51,22 +108,35 @@
   align-items: stretch;
 }
 
-/* Tarjeta base compartida */
+.grid-convocatorias {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-proyectos {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* ========================================
+   TARJETA BASE
+======================================== */
 
 .tarjeta-publicacion {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
   overflow: hidden;
-  background: var(--fondo);
+  background: var(--card);
+  color: var(--texto);
   border: 1px solid var(--borde);
   border-radius: var(--radius);
   box-shadow: var(--sombra);
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .tarjeta-publicacion:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--sombra-hover);
 }
 
@@ -77,6 +147,7 @@
 .publicacion-imagen {
   position: relative;
   min-width: 0;
+  height: 210px;
   overflow: hidden;
   background: var(--fondo-alt);
 }
@@ -86,27 +157,57 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.35s ease;
 }
 
-/* Convocatorias: imagen superior */
+.publicacion-sin-imagen {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--texto-secundario);
+  background:
+    radial-gradient(circle at 50% 40%, rgb(255 255 255 / 65%), transparent 58%),
+    var(--fondo-alt);
+  font-size: 0.85rem;
+}
+
+.publicacion-sin-imagen i {
+  font-size: 2rem;
+}
+
+.tarjeta-publicacion:hover .publicacion-imagen img {
+  transform: scale(1.035);
+}
+
+/* Convocatorias: imagen arriba */
 
 .tarjeta-convocatoria .publicacion-imagen {
-  height: 210px;
+  height: 220px;
 }
+
+/* Etiquetas sobre las imágenes */
 
 .etiqueta-tipo {
   position: absolute;
   top: 12px;
   left: 12px;
+  max-width: calc(100% - 24px);
   padding: 6px 11px;
   color: var(--texto-light);
   background: var(--accion);
   border-radius: 7px;
   font-size: 0.75rem;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
-/* Boletines y revistas: imagen lateral */
+/* ========================================
+   BOLETINES Y REVISTAS HORIZONTALES
+======================================== */
 
 .tarjeta-horizontal {
   display: grid;
@@ -120,19 +221,25 @@
 }
 
 /* ========================================
-   CONTENIDO COMPARTIDO
+   CONTENIDO
 ======================================== */
 
 .publicacion-contenido {
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: flex-start;
   min-width: 0;
   padding: 20px;
 }
 
+.publicacion-contenido > .boton-publicacion,
+.publicacion-contenido > .archivo-pendiente {
+  margin-top: auto;
+}
+
 .publicacion-contenido h3 {
-  margin: 6px 0 9px;
+  margin: 7px 0 10px;
   color: var(--principal);
   font-size: 1.12rem;
   font-weight: 750;
@@ -141,11 +248,12 @@
 }
 
 .publicacion-descripcion {
-  margin: 0 0 16px;
+  margin: 0 0 18px;
   color: var(--texto-secundario);
   font-size: 0.92rem;
-  line-height: 1.65;
+  line-height: 1.7;
   overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .publicacion-fecha {
@@ -170,13 +278,16 @@
   text-transform: uppercase;
 }
 
-/* Botón compartido */
+/* ========================================
+   BOTONES Y ARCHIVOS
+======================================== */
 
 .boton-publicacion {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 9px;
+  max-width: 100%;
   margin-top: auto;
   padding: 10px 14px;
   color: var(--texto-light);
@@ -185,8 +296,10 @@
   border-radius: 9px;
   font-size: 0.87rem;
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.5;
+  text-align: center;
   text-decoration: none;
+  overflow-wrap: anywhere;
   transition:
     background 0.2s ease,
     border-color 0.2s ease;
@@ -203,7 +316,7 @@
   color: var(--texto-secundario);
   font-size: 0.8rem;
   font-style: italic;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* ========================================
@@ -220,7 +333,7 @@
 .boton-filtro {
   padding: 8px 15px;
   color: var(--principal);
-  background: transparent;
+  background: var(--card);
   border: 1px solid var(--borde);
   border-radius: 30px;
   font-size: 0.87rem;
@@ -240,6 +353,136 @@
 }
 
 /* ========================================
+   PROYECTOS
+======================================== */
+
+.tarjeta-proyecto {
+  min-height: 100%;
+}
+
+.tarjeta-proyecto .publicacion-imagen {
+  height: 215px;
+}
+
+.etiqueta-proyecto {
+  background: var(--principal);
+}
+
+.datos-proyecto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+
+.estado-proyecto {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 5px 9px;
+  border: 1px solid var(--borde);
+  border-radius: 20px;
+  font-size: 0.73rem;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.estado-convocatoria {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 15px;
+  padding: 7px 12px;
+  border: 1px solid transparent;
+  border-radius: 24px;
+  font-size: 0.8rem;
+  font-weight: 750;
+}
+
+.convocatoria-vigente {
+  border-color: #86efac;
+  background: #dcfce7;
+  color: #166534;
+}
+
+.convocatoria-terminada {
+  border-color: #cbd5e1;
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.estado-finalizado {
+  color: var(--principal);
+  background: var(--fondo-alt);
+}
+
+.estado-desarrollo {
+  color: var(--principal);
+  background: var(--fondo);
+  border-color: var(--secundario);
+}
+
+.estado-planificado {
+  color: var(--texto-secundario);
+  background: var(--card);
+}
+
+.estado-general {
+  color: var(--texto-secundario);
+  background: var(--fondo);
+}
+
+.fechas-publicacion {
+  display: grid;
+  gap: 5px;
+  width: 100%;
+  margin: 16px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--borde);
+  color: var(--texto-secundario);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.fechas-publicacion span {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.fechas-publicacion i {
+  flex-shrink: 0;
+  color: var(--accion);
+}
+
+.acciones-publicacion {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  margin-top: 13px;
+}
+
+.accion-publicacion {
+  min-height: 36px;
+  padding: 8px 11px;
+  font-size: 0.82rem;
+}
+
+.accion-editar-publicacion {
+  background: #fef3c7;
+  color: #854d0e;
+}
+
+.accion-eliminar-publicacion {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* ========================================
    ESTADOS VACÍOS
 ======================================== */
 
@@ -251,27 +494,27 @@
   border: 1px dashed var(--borde);
   border-radius: var(--radius);
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.7;
   text-align: left;
 }
 
 /* ========================================
-   TABLET
+   TABLETS
 ======================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .publicaciones {
-    width: min(100% - 32px, 760px);
-    padding-top: 26px;
+    width: min(100% - 32px, 850px);
+    padding-top: 28px;
   }
 
-  .grid-publicaciones {
-    grid-template-columns: 1fr;
-    gap: 18px;
+  .grid-convocatorias,
+  .grid-proyectos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .tarjeta-horizontal {
-    grid-template-columns: minmax(130px, 32%) minmax(0, 1fr);
+    grid-template-columns: minmax(120px, 32%) minmax(0, 1fr);
   }
 }
 
@@ -279,58 +522,73 @@
    MÓVILES
 ======================================== */
 
-@media (max-width: 560px) {
+@media (max-width: 600px) {
   .publicaciones {
     width: calc(100% - 28px);
     padding-top: 22px;
-    padding-bottom: 36px;
+    padding-bottom: 38px;
   }
 
   .encabezado-publicaciones {
-    margin-bottom: 19px;
+    margin-bottom: 20px;
+  }
+
+  .encabezado-publicaciones-fila {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .boton-crear-publicacion {
+    align-self: flex-start;
   }
 
   .subtitulo-publicaciones {
-    font-size: 0.91rem;
+    font-size: 0.92rem;
   }
 
-  .grid-publicaciones {
-    gap: 16px;
+  .grid-publicaciones,
+  .grid-convocatorias,
+  .grid-proyectos {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 17px;
   }
 
-  .tarjeta-convocatoria .publicacion-imagen {
-    height: 175px;
+  .tarjeta-convocatoria .publicacion-imagen,
+  .tarjeta-proyecto .publicacion-imagen {
+    height: 205px;
   }
 
+  /* Boletines y revistas se apilan en móvil */
   .tarjeta-horizontal {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
 
   .tarjeta-horizontal .publicacion-imagen {
-    height: 180px;
+    height: 185px;
     min-height: 0;
   }
 
   .publicacion-contenido {
-    padding: 16px;
+    padding: 17px;
   }
 
   .publicacion-contenido h3 {
-    font-size: 1.05rem;
+    font-size: 1.06rem;
   }
 
   .publicacion-descripcion {
-    font-size: 0.9rem;
+    font-size: 0.91rem;
   }
 
   .filtros-publicaciones {
     gap: 7px;
-    margin-bottom: 17px;
+    margin-bottom: 18px;
   }
 
   .boton-filtro {
     padding: 7px 12px;
-    font-size: 0.81rem;
+    font-size: 0.82rem;
   }
 
   .boton-publicacion {
@@ -338,16 +596,20 @@
   }
 }
 
-/* Respeta las preferencias de movimiento del usuario */
+/* ========================================
+   MOVIMIENTO REDUCIDO
+======================================== */
 
 @media (prefers-reduced-motion: reduce) {
   .tarjeta-publicacion,
+  .publicacion-imagen img,
   .boton-publicacion,
   .boton-filtro {
     transition: none;
   }
 
-  .tarjeta-publicacion:hover {
+  .tarjeta-publicacion:hover,
+  .tarjeta-publicacion:hover .publicacion-imagen img {
     transform: none;
   }
 }
